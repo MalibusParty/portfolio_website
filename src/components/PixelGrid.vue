@@ -64,8 +64,8 @@ function update(event: MouseEvent) {
         const yDiff = Math.abs(position.top - event.pageY);
         const distance = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
         if(distance < 70) {
-            ele.style.width = '30px';
-            ele.style.height = '30px';
+            ele.style.width = '50px';
+            ele.style.height = '50px';
         } else if(distance < 125) {
             ele.style.width = '20px';
             ele.style.height = '20px';
@@ -75,6 +75,12 @@ function update(event: MouseEvent) {
         }
     }
     //console.log(Date.now() - currTime);
+}
+
+//TODO: implement function to determine z index and w/h through a given distance
+function calcZIndex(distance: number) {
+
+    return;
 }
 
 
@@ -102,6 +108,7 @@ onUnmounted(() => window.removeEventListener('mousemove', update));
     background-color: gray;
     margin: 15px;
     border-radius: 5px;
+    filter: drop-shadow(0 0 3px black);
 }
 
 .pixel:hover {
