@@ -32,19 +32,22 @@ nextTick(() =>{
 
 function createGrid() {
     pixelArr = document.querySelectorAll('.pixel');
+    let finalArr = []
     let arrCounter = 0;
     for(let i = 1; i <= props.xDimension; i++) {
         for(let j = 1; j <= props.yDimension; j++) {
             let ele = pixelArr[arrCounter] as HTMLElement;
             if(newImg[arrCounter++] === 1) {
                 ele.style.gridArea = `${j} / ${i} / span 1 / span 1`;
-                ele.style.backgroundColor = "red";
+                ele.style.backgroundColor = "white";
+                finalArr.push(ele);
             } else {
                 ele.style.gridArea = `${j} / ${i} / span 1 / span 1`;
                 ele.hidden = true;
             }
         }
     }
+    pixelArr = finalArr;
 }
 
 const xPos = ref(0);
@@ -89,8 +92,8 @@ onUnmounted(() => window.removeEventListener('mousemove', update));
     align-items: center;
     justify-items: center;
     gap: 10px;
-    grid-auto-rows: 40px;
-    grid-auto-columns: 40px;
+    grid-auto-rows: 25px;
+    grid-auto-columns: 25px;
 }
 
 .pixel {
@@ -98,6 +101,7 @@ onUnmounted(() => window.removeEventListener('mousemove', update));
     height: 5px;
     background-color: gray;
     margin: 15px;
+    border-radius: 5px;
 }
 
 .pixel:hover {
