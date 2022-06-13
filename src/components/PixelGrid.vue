@@ -41,7 +41,7 @@ function createGrid() {
                 ele.style.backgroundColor = "red";
             } else {
                 ele.style.gridArea = `${j} / ${i} / span 1 / span 1`;
-                ele.style.backgroundColor = "white";
+                ele.hidden = true;
             }
         }
     }
@@ -51,6 +51,7 @@ const xPos = ref(0);
 const yPos = ref(0);
 
 function update(event: MouseEvent) {
+    //let currTime = Date.now();
     xPos.value = event.pageX;
     yPos.value = event.pageY;
     for(let i = 0; i < pixelArr.length; i++) {
@@ -70,6 +71,7 @@ function update(event: MouseEvent) {
             ele.style.height = '5px';
         }
     }
+    //console.log(Date.now() - currTime);
 }
 
 
