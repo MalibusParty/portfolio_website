@@ -3,7 +3,7 @@ export function createBinaryImg(canvasId) {
     const ctx = canvas.getContext('2d');
 
     ctx.font = 'oblique 900 100px sans-serif';
-    ctx.fillText('Felix', 10, 100, 300);
+    ctx.fillText('hello', 10, 100, 300);
     let imgData = ctx.getImageData(0, 0, 300, 300);
     let pixArr = new Array(imgData.data.length)
     

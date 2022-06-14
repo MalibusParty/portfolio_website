@@ -1,9 +1,8 @@
 <template>
     <canvas hidden id="testCanvas" width="300" height="300"></canvas>
-    <div id="pixGrid">
+    <div ref="pixelGrid" id="pixGrid">
         <div class="pixel" v-for="i in pixels" v-bind:key="i"></div>
     </div>
-    <p id="mousePos">Mouse is at: {{xPos}} || {{yPos}}</p>
 </template>
 
 
@@ -19,10 +18,10 @@ const props = defineProps<{
 
 const pixels = props.xDimension * props.yDimension;
 
-
 let pixelArr;
 let pixArr;
 let newImg;
+const gridElement = document.getElementById('pixelGrid');
 
 nextTick(() =>{
     pixArr = createBinaryImg('testCanvas');
@@ -50,37 +49,46 @@ function createGrid() {
     pixelArr = finalArr;
 }
 
-const xPos = ref(0);
-const yPos = ref(0);
-
 function update(event: MouseEvent) {
     //let currTime = Date.now();
-    xPos.value = event.pageX;
-    yPos.value = event.pageY;
     for(let i = 0; i < pixelArr.length; i++) {
         let ele = pixelArr[i] as HTMLElement;
         const position = ele.getBoundingClientRect();
         const xDiff = Math.abs(position.left - event.pageX);
         const yDiff = Math.abs(position.top - event.pageY);
         const distance = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
-        if(distance < 70) {
-            ele.style.width = '50px';
-            ele.style.height = '50px';
-        } else if(distance < 125) {
-            ele.style.width = '20px';
-            ele.style.height = '20px';
-        } else {
-            ele.style.width = '5px';
-            ele.style.height = '5px';
+        let maxDistanceDistance = 70 / distance;
+        if(maxDistanceDistance > 1) {
+            maxDistanceDistance = 1;
         }
+        const zIndex = calcZIndex(maxDistanceDistance, 10, 0);
+        const newWidth = calcWidth(maxDistanceDistance, 50, 2);
+        ele.style.width = `${newWidth}px`;
+        ele.style.height = `${newWidth}px`;
+        ele.style.zIndex = `${zIndex}`;
+        // if(distance > 150) {
+        //     ele.style.width = '5px';
+        //     ele.style.height = '5px';
+        // } else if(distance <= 150 && distance > 70) {
+        //     ele.style.width = '20px';
+        //     ele.style.height = '20px';
+        // } else {
+        //     ele.style.width = '30px';
+        //     ele.style.height = '30px';
+        // }
     }
     //console.log(Date.now() - currTime);
 }
 
 //TODO: implement function to determine z index and w/h through a given distance
-function calcZIndex(distance: number) {
+function calcZIndex(distanceNum: number, maxZ: number, minZ: number) {
+    //const gridWidth: number = gridElement?.clientWidth;
+    // bitwise truncating may introduce errors
+    return (maxZ - (maxZ * distanceNum) + minZ) | 0;
+}
 
-    return;
+function calcWidth(distanceNum: number, maxW: number, minW: number) {
+    return ((maxW * distanceNum) + minW) | 0;
 }
 
 
@@ -108,7 +116,6 @@ onUnmounted(() => window.removeEventListener('mousemove', update));
     background-color: gray;
     margin: 15px;
     border-radius: 5px;
-    filter: drop-shadow(0 0 3px black);
 }
 
 .pixel:hover {
