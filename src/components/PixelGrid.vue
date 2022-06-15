@@ -7,9 +7,8 @@
 
 
 <script setup lang="ts">
-import { nextTick, onMounted, onUnmounted, ref } from 'vue';
+import { nextTick, onMounted, onUnmounted } from 'vue';
 import { createBinaryImg, scaleImgDown, getPixel } from '../services/imgScaleLib';
-
 
 const props = defineProps<{
         xDimension: number,
@@ -18,19 +17,21 @@ const props = defineProps<{
 
 const pixels = props.xDimension * props.yDimension;
 
-let pixelArr;
+let pixelArr: Array<HTMLElement>;
 let pixArr;
-let newImg;
-const gridElement = document.getElementById('pixelGrid');
+let newImg: number[];
+let posOfEle: number[][];
+//const gridElement = document.getElementById('pixelGrid');
 
 nextTick(() =>{
     pixArr = createBinaryImg('testCanvas');
     newImg = scaleImgDown(pixArr, props.xDimension, props.yDimension, 300, 300);
     createGrid();
+    getPositions();
 });
 
 function createGrid() {
-    pixelArr = document.querySelectorAll('.pixel');
+    pixelArr = Array.from(document.querySelectorAll('.pixel'));
     let finalArr = []
     let arrCounter = 0;
     for(let i = 1; i <= props.xDimension; i++) {
@@ -49,23 +50,37 @@ function createGrid() {
     pixelArr = finalArr;
 }
 
+function getPositions() {
+    let posArr = [];
+    for(let i = 0; i < pixelArr.length; i++) {
+        let position = pixelArr[i].getBoundingClientRect();
+        const pos: number[] = [position.left, position.top];
+        posArr.push(pos);
+    }
+    posOfEle = posArr;
+}
+
 function update(event: MouseEvent) {
     //let currTime = Date.now();
     for(let i = 0; i < pixelArr.length; i++) {
         let ele = pixelArr[i] as HTMLElement;
-        const position = ele.getBoundingClientRect();
-        const xDiff = Math.abs(position.left - event.pageX);
-        const yDiff = Math.abs(position.top - event.pageY);
+        const xDiff = Math.abs(posOfEle[i][0] - event.pageX);
+        const yDiff = Math.abs(posOfEle[i][1] - event.pageY);
         const distance = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
+        if(distance > 600) {
+            ele.style.width = '5px';
+            ele.style.height = '5px';
+            continue;
+        } 
         let maxDistanceDistance = 70 / distance;
         if(maxDistanceDistance > 1) {
             maxDistanceDistance = 1;
         }
-        const zIndex = calcZIndex(maxDistanceDistance, 10, 0);
-        const newWidth = calcWidth(maxDistanceDistance, 50, 2);
+        //const zIndex = calcZIndex(maxDistanceDistance, 10, 0);
+        const newWidth = calcWidth(maxDistanceDistance, 25, 2);
         ele.style.width = `${newWidth}px`;
         ele.style.height = `${newWidth}px`;
-        ele.style.zIndex = `${zIndex}`;
+        //ele.style.zIndex = `${zIndex}`;
         // if(distance > 150) {
         //     ele.style.width = '5px';
         //     ele.style.height = '5px';
@@ -115,13 +130,7 @@ onUnmounted(() => window.removeEventListener('mousemove', update));
     height: 5px;
     background-color: gray;
     margin: 15px;
-    border-radius: 5px;
-}
-
-.pixel:hover {
-    margin: 5px;
-    width: 15px;
-    height: 15px;
+    border-radius: 50%;
 }
 
 #mousePos {
