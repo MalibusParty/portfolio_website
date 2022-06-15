@@ -2,8 +2,8 @@ export function createBinaryImg(canvasId) {
     const canvas = document.getElementById(canvasId);
     const ctx = canvas.getContext('2d');
 
-    ctx.font = 'oblique 900 100px sans-serif';
-    ctx.fillText('hello', 10, 100, 300);
+    ctx.font = 'oblique 1000 100px sans-serif';
+    ctx.fillText('Portfolio', 10, 100, 300);
     let imgData = ctx.getImageData(0, 0, 300, 300);
     let pixArr = new Array(imgData.data.length)
     

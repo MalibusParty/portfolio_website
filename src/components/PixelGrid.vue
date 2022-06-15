@@ -1,6 +1,6 @@
 <template>
-    <canvas hidden id="testCanvas" width="300" height="300"></canvas>
-    <div ref="pixelGrid" id="pixGrid">
+    <canvas v-once hidden id="testCanvas" width="300" height="300"></canvas>
+    <div v-once ref="pixelGrid" id="pixGrid">
         <div class="pixel" v-for="i in pixels" v-bind:key="i"></div>
     </div>
 </template>
@@ -67,17 +67,17 @@ function update(event: MouseEvent) {
         const xDiff = Math.abs(posOfEle[i][0] - event.pageX);
         const yDiff = Math.abs(posOfEle[i][1] - event.pageY);
         const distance = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
-        if(distance > 600) {
-            ele.style.width = '5px';
-            ele.style.height = '5px';
-            continue;
-        } 
+        // if(distance > 600) {
+        //     ele.style.width = '5px';
+        //     ele.style.height = '5px';
+        //     continue;
+        // } 
         let maxDistanceDistance = 70 / distance;
         if(maxDistanceDistance > 1) {
             maxDistanceDistance = 1;
         }
         //const zIndex = calcZIndex(maxDistanceDistance, 10, 0);
-        const newWidth = calcWidth(maxDistanceDistance, 25, 2);
+        const newWidth = calcWidth(maxDistanceDistance, 15, 3);
         ele.style.width = `${newWidth}px`;
         ele.style.height = `${newWidth}px`;
         //ele.style.zIndex = `${zIndex}`;
@@ -121,14 +121,11 @@ onUnmounted(() => window.removeEventListener('mousemove', update));
     align-items: center;
     justify-items: center;
     gap: 10px;
-    grid-auto-rows: 25px;
-    grid-auto-columns: 25px;
+    grid-auto-rows: 0.5vh;
+    grid-auto-columns: 0.5vh;
 }
 
 .pixel {
-    width: 5px;
-    height: 5px;
-    background-color: gray;
     margin: 15px;
     border-radius: 50%;
 }
