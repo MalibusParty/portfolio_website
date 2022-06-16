@@ -1,7 +1,7 @@
 <template>
-    <canvas v-once hidden id="testCanvas" width="500" height="400"></canvas>
-    <div v-once ref="pixelGrid" id="pixGrid">
-        <div class="pixel" v-for="i in pixels" v-bind:key="i"></div>
+    <canvas hidden id="testCanvas" width="500" height="400"></canvas>
+    <div ref="pixelGrid" id="pixGrid">
+        <div class="pixel" v-for="pix in pixels" v-bind:key="pix"></div>
     </div>
 </template>
 
@@ -21,7 +21,7 @@ let pixelArr: Array<HTMLElement>;
 let pixArr;
 let newImg: number[];
 let posOfEle: number[][];
-const gridElement = document.getElementById('pixelGrid');
+let pixelMaxWidth = (window.innerWidth / 320) | 0;
 
 nextTick(() =>{
     pixArr = createBinaryImg('testCanvas');
@@ -74,7 +74,7 @@ function update(event: MouseEvent) {
             maxDistanceDistance = 1;
         }
         //const zIndex = calcZIndex(maxDistanceDistance, 10, 0);
-        const newWidth = calcWidth(maxDistanceDistance, 15, 3);
+        const newWidth = calcWidth(maxDistanceDistance, pixelMaxWidth, 3);
         ele.style.width = `${newWidth}px`;
         ele.style.height = `${newWidth}px`;
         //ele.style.zIndex = `${zIndex}`;
@@ -90,8 +90,15 @@ function calcWidth(distanceNum: number, maxW: number, minW: number) {
     return ((maxW * distanceNum) + minW) | 0;
 }
 
+function resizeCalculations(event: UIEvent) {
+    getPositions();
+    pixelMaxWidth = (window.innerWidth / 320) | 0;
+}
 
-onMounted(() => window.addEventListener('mousemove', update));
+onMounted(() => {
+    window.addEventListener('mousemove', update);
+    window.addEventListener('resize', resizeCalculations);
+    });
 onUnmounted(() => window.removeEventListener('mousemove', update));
 
 </script>
@@ -110,7 +117,6 @@ onUnmounted(() => window.removeEventListener('mousemove', update));
 }
 
 .pixel {
-    margin: 15px;
     border-radius: 50%;
 }
 
