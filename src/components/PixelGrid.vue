@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
 import { nextTick, onMounted, onUnmounted } from 'vue';
-import { createBinaryImg, scaleImgDown, getPixel } from '../services/imgScaleLib';
+import { createBinaryImg, scaleImgDown, getPixel } from '@/services/imgScaleLib';
 
 const props = defineProps<{
         xDimension: number,
@@ -104,9 +104,9 @@ onUnmounted(() => window.removeEventListener('mousemove', update));
     display: grid;
     align-items: center;
     justify-items: center;
-    gap: 10px;
-    grid-auto-rows: 0.5vh;
-    grid-auto-columns: 0.5vh;
+    gap: 0.25vw;
+    grid-auto-rows: 0.15vw;
+    grid-auto-columns: 0.15vw;
 }
 
 .pixel {
