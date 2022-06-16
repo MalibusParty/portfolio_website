@@ -5,7 +5,7 @@ import PixelGrid from "./components/PixelGrid.vue";
 
 <template>
 <div class="main">
-  <PixelGrid :x-dimension="100" :y-dimension="100"/>
+  <PixelGrid :x-dimension="130" :y-dimension="130"/>
 </div>
 </template>
 
