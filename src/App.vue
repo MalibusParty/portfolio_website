@@ -1,6 +1,38 @@
 <script setup lang="ts">
+import { onMounted } from "vue";
 import { RouterLink, RouterView } from "vue-router";
-import PixelGrid from "./components/PixelGrid.vue";
+import router from "./router";
+
+let throttled = false;
+let currentPage = 0;
+const pageCount = 3;
+
+window.addEventListener('wheel', (event) => {
+  if(!throttled) {
+    throttled = true;
+    if(event.deltaY < 0) {
+      currentPage -= (currentPage === 0) ? 0 : 1;
+    } else {
+      currentPage += (currentPage < pageCount-1) ? 1 : 0;
+    }
+    
+    switch(currentPage) {
+      case 0:
+        router.push('/');
+        break;
+      case 1:
+        router.push('/projectone');
+        break;
+      case 2:
+        router.push('/projecttwo');
+        break;
+    }
+    
+    setTimeout(() => {
+      throttled = false;
+    }, 500);
+  }
+});
 
 </script>
 
@@ -10,9 +42,6 @@ import PixelGrid from "./components/PixelGrid.vue";
   <div id="github-btn"></div>
   <div id="scroll-line"></div>
   <div id="scroll-text">SCROLLDOWN</div>
-  <nav>
-    <RouterLink to="/"></RouterLink>
-  </nav>
   <RouterView />
 </div>
 </template>
