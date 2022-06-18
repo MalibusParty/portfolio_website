@@ -1,22 +1,28 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
-import { RouterLink, RouterView } from "vue-router";
+import { onMounted, ref } from "vue";
+import { RouterLink, RouterView, useRoute } from "vue-router";
+import PageIndicator from "./components/PageIndicator.vue";
 import router from "./router";
 
+
+const route = useRoute();
+
 let throttled = false;
-let currentPage = 0;
+let currentPage = ref(getCurrentPage());
 const pageCount = 3;
+
+currentPage.value = getCurrentPage();
 
 window.addEventListener('wheel', (event) => {
   if(!throttled) {
     throttled = true;
     if(event.deltaY < 0) {
-      currentPage -= (currentPage === 0) ? 0 : 1;
+      currentPage.value -= (currentPage.value === 0) ? 0 : 1;
     } else {
-      currentPage += (currentPage < pageCount-1) ? 1 : 0;
+      currentPage.value += (currentPage.value < pageCount-1) ? 1 : 0;
     }
     
-    switch(currentPage) {
+    switch(currentPage.value) {
       case 0:
         router.push('/');
         break;
@@ -34,6 +40,19 @@ window.addEventListener('wheel', (event) => {
   }
 });
 
+function getCurrentPage() {
+  switch(route.path) {
+    case '/':
+      return 0;
+    case '/projectone':
+      return 1;
+    case '/projecttwo':
+      return 2;
+    default:
+      return 0;
+  }
+}
+
 </script>
 
 <template>
@@ -42,6 +61,8 @@ window.addEventListener('wheel', (event) => {
   <div id="github-btn"></div>
   <div id="scroll-line"></div>
   <div id="scroll-text">SCROLLDOWN</div>
+  <div id="page-indicator"><PageIndicator :page-count="3" :current-page="currentPage"/></div>
+
   <RouterView />
 </div>
 </template>
@@ -88,7 +109,7 @@ body {
   height: 10vh;
 
   bottom: 0px;
-  left: 3vw;
+  left: 2vw;
 }
 
 #scroll-text {
@@ -105,6 +126,13 @@ body {
   font-weight: 100;
   letter-spacing: 0.2vh;
   color: white;
+}
+
+#page-indicator {
+  position: fixed;
+
+  top: 45vh;
+  left: 2vw;
 }
 
 #menu-btn:hover {
