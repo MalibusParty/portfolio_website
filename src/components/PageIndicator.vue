@@ -7,7 +7,7 @@
 
 
 <script setup lang="ts">
-import { nextTick,  watchEffect } from 'vue';
+import { nextTick,  onMounted,  watchEffect } from 'vue';
 
 
 const props = defineProps<{
@@ -52,11 +52,16 @@ function changeIndicator(currentPageIndex: number) {
             ele.style.backgroundColor = 'rgba(255, 255, 255, 255)'
         }
 
-        if(currentPageIndex > 1) {
+        if(ele.classList.contains('blendInAnimation')) {
+            ele.classList.remove('blendInAnimation');
+        }
+
+        if(rowNum == (currentPageIndex + 1)) {
             ele.classList.add('blendInAnimation');
         }
     }
 }
+
 
 </script>
 

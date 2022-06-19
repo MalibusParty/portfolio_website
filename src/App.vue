@@ -41,12 +41,15 @@ window.addEventListener('wheel', (event) => {
 });
 
 function getCurrentPage() {
-  switch(route.path) {
-    case '/':
+  let url =  window.location.href.split('/');
+  const urlStr = url[url.length - 1];
+
+  switch(urlStr) {
+    case '':
       return 0;
-    case '/projectone':
+    case 'projectone':
       return 1;
-    case '/projecttwo':
+    case 'projecttwo':
       return 2;
     default:
       return 0;
