@@ -46,18 +46,54 @@ function changeIndicator(currentPageIndex: number) {
     for(let i = 0; i < circleArray.length; i++) {
         ele = circleArray[i];
         const rowNum = ((i / 4) + 1) | 0;
+
+        
+
         if(rowNum != (currentPageIndex + 1) && (i % 4) >= 1) {
-            ele.style.backgroundColor = 'rgba(255, 255, 255, 0)'
+            if(ele.classList.contains('blendInAnimation')) {
+                ele.classList.remove('blendInAnimation');
+                ele.classList.add('blend-out');
+                const currEle = ele;
+                switch(i % 4) {
+                    case 3:
+                        setTimeout(() => {
+                            currEle.style.backgroundColor = 'rgba(255, 255, 255, 0)'
+                        }, 150);
+                        break;
+                    case 2:
+                        setTimeout(() => {
+                            currEle.style.backgroundColor = 'rgba(255, 255, 255, 0)'
+                        }, 300);
+                        break;
+                    case 1:
+                        setTimeout(() => {
+                            currEle.style.backgroundColor = 'rgba(255, 255, 255, 0)'
+                        }, 450);
+                        break;
+                }
+            }
+            //ele.style.backgroundColor = 'rgba(255, 255, 255, 0)';
         } else {
-            ele.style.backgroundColor = 'rgba(255, 255, 255, 255)'
-        }
-
-        if(ele.classList.contains('blendInAnimation')) {
-            ele.classList.remove('blendInAnimation');
-        }
-
-        if(rowNum == (currentPageIndex + 1)) {
             ele.classList.add('blendInAnimation');
+            const currEle = ele;
+            switch(i % 4) {
+                case 1:
+                    setTimeout(() => {
+                        currEle.style.backgroundColor = 'rgba(255, 255, 255, 255)'
+                    }, 150);
+                    break;
+                case 2:
+                    setTimeout(() => {
+                        currEle.style.backgroundColor = 'rgba(255, 255, 255, 255)'
+                    }, 300);
+                    break;
+                case 3:
+                    setTimeout(() => {
+                        currEle.style.backgroundColor = 'rgba(255, 255, 255, 255)'
+                    }, 450);
+                    break;
+            }
+            
         }
     }
 }
@@ -71,6 +107,11 @@ function changeIndicator(currentPageIndex: number) {
 @keyframes blendIn1{
     from {background-color: rgba(255, 255, 255, 0)};
     to {background-color: rgba(255, 255, 255, 255)};
+}
+
+@keyframes blend-out {
+    from {background-color: rgba(255, 255, 255, 255)};
+    to {background-color: rgba(255, 255, 255, 0)};
 }
 
 #indicatorGrid {
@@ -89,8 +130,9 @@ function changeIndicator(currentPageIndex: number) {
 
 .blendInAnimation {
     animation-name: blendIn1;
-    animation-duration: 500ms;
-    animation-delay: 500ms;
+    animation-duration: 150ms;
+    /*animation-delay: 500ms;*/
+    background-color: rgba(255, 255, 255, 255);
 }
 
 

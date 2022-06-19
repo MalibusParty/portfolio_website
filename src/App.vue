@@ -14,6 +14,7 @@ const pageCount = 3;
 currentPage.value = getCurrentPage();
 
 window.addEventListener('wheel', (event) => {
+  if(Math.abs(event.deltaY) < 30) return;
   if(!throttled) {
     throttled = true;
     if(event.deltaY < 0) {
