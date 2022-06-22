@@ -59,10 +59,14 @@ function getCurrentPage() {
 
 <template>
 <div class="main">
-  <div id="menu-btn"></div>
-  <div id="github-btn"></div>
-  <div id="scroll-line"></div>
-  <div id="scroll-text">SCROLLDOWN</div>
+  <div id="header-btns">
+    <div id="github-btn"></div>
+    <div id="menu-btn"></div>
+  </div>
+  <div id="scroll-stuff">
+    <div id="scroll-line"></div>
+    <div id="scroll-text">SCROLLDOWN</div>
+  </div>
   <div id="page-indicator"><PageIndicator :page-count="3" :current-page="currentPage"/></div>
 
   <RouterView />
@@ -83,42 +87,52 @@ body {
   background-color: rgb(39, 39, 39);
 }
 
-#menu-btn {
+#header-btns {
+  display: flex;
+  flex-direction: row;
   position: fixed;
-  background-image: url('@/assets/burger_btn_placeholder.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: 10vh;
-  width: 10vh;
   right: 1.5vw;
   top: 1vh;
+  justify-content: center;
+  align-items: center;
 }
 
-#github-btn {
-  position: fixed;
-  background-image: url('@/assets/GitHub-Mark-Light-120px-plus.png');
+#menu-btn {
+  background-image: url('@/assets/burger_btn_placeholder.png');
   background-repeat: no-repeat;
   background-size: contain;
   height: 8vh;
   width: 8vh;
-  right: 8vw;
-  top: 2vh;
+}
+
+#github-btn {
+  background-image: url('@/assets/GitHub-Mark-Light-120px-plus.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 6vh;
+  width: 6vh;
+  margin-right: 0.5vw;
+}
+
+#scroll-stuff {
+  display: flex;
+  flex-direction: column;
+
+  bottom: 0;
+  left: -1vw;
+
+  position: fixed;
 }
 
 #scroll-line {
-  position: fixed;
   border-left: 4px solid white;
   height: 10vh;
-
-  bottom: 0px;
-  left: 2vw;
+  margin-left: 83px;
 }
 
 #scroll-text {
   position: fixed;
   bottom: 16vh;
-  left: 0.1vw;
-  
 
   transform: rotate(90deg);
 
@@ -134,7 +148,7 @@ body {
   position: fixed;
 
   top: 45vh;
-  left: 2vw;
+  left: 1.5vw;
 }
 
 #menu-btn:hover {
