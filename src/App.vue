@@ -5,8 +5,6 @@ import PageIndicator from "./components/PageIndicator.vue";
 import router from "./router";
 
 
-const route = useRoute();
-
 let throttled = false;
 let currentPage = ref(getCurrentPage());
 const pageCount = 3;
