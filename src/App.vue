@@ -127,7 +127,7 @@ body {
 #scroll-line {
   border-left: 4px solid white;
   height: 10vh;
-  margin-left: 83px;
+  margin-left: 6vh;
 }
 
 #scroll-text {
