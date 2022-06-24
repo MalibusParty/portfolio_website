@@ -65,7 +65,7 @@ function getCurrentPage() {
     <div id="github-btn"></div>
     <div id="menu-btn"></div>
   </div>
-  <div id="scroll-stuff">
+  <div id="scroll-stuff" v-if="currentPage === 0">
     <div id="scroll-line"></div>
     <div id="scroll-text">SCROLLDOWN</div>
   </div>
