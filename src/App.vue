@@ -5,8 +5,6 @@ import PageIndicator from "./components/PageIndicator.vue";
 import router from "./router";
 
 
-const route = useRoute();
-
 let throttled = false;
 let currentPage = ref(getCurrentPage());
 const pageCount = 3;
@@ -129,7 +127,7 @@ body {
 #scroll-line {
   border-left: 4px solid white;
   height: 10vh;
-  margin-left: 83px;
+  margin-left: 6vh;
 }
 
 #scroll-text {
