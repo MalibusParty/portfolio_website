@@ -1,11 +1,15 @@
 <template>
     <div id="testPage1">
-        <h1>Project 1</h1>
+        <h1 @click="removeScroll">Project 1</h1>
     </div>
 </template>
 
 
 <script setup lang="ts">
+
+function removeScroll() {
+    // window.removeEventListener('wheel', wheelListener);
+}
 
 </script>
 

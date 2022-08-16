@@ -2,8 +2,8 @@ import { createRouter, createWebHistory } from "vue-router";
 import TitleView from '@/views/TitleView.vue';
 import ProjectOne from '@/views/ProjectOne.vue';
 import ProjectTwo from '@/views/ProjectTwo.vue';
-import ProjectOneInfo from '@/views/ProjectOneInfo';
-import ProjectTwoInfo from '@/views/ProjectTwoInfo';
+import ProjectOneInfo from '@/views/ProjectOneInfo.vue';
+import ProjectTwoInfo from '@/views/ProjectTwoInfo.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),

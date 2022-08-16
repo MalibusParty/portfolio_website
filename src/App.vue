@@ -11,7 +11,9 @@ const pageCount = 3;
 
 currentPage.value = getCurrentPage();
 
-window.addEventListener('wheel', (event) => {
+window.addEventListener('wheel', wheelListener);
+
+function wheelListener(event: WheelEvent) {
   if(Math.abs(event.deltaY) < 30) return;
   if(!throttled) {
     throttled = true;
@@ -37,7 +39,7 @@ window.addEventListener('wheel', (event) => {
       throttled = false;
     }, 500);
   }
-});
+}
 
 function getCurrentPage() {
   let url =  window.location.href.split('/');
