@@ -1,14 +1,23 @@
 <template>
     <div id="testPage1">
-        <h1 @click="removeScroll">Project 1</h1>
+        <h1 @click="linkToOne">Project 1</h1>
     </div>
 </template>
 
 
 <script setup lang="ts">
+import router from '@/router';
+import { onMounted } from 'vue';
+import { usePage } from '../services/usePage'
 
-function removeScroll() {
-    // window.removeEventListener('wheel', wheelListener);
+const { pageState, getCurrentPage, switchScroll } = usePage();
+
+onMounted(() => pageState.currentPage = getCurrentPage());
+
+function linkToOne() {
+    pageState.scroll = false;
+    switchScroll();
+    router.push('/projectone/info');
 }
 
 </script>
@@ -31,5 +40,7 @@ h1 {
 
     font-size: 60pt;
     background-color: crimson;
+
+    cursor: pointer;
 }
 </style>

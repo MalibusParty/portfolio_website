@@ -98,8 +98,12 @@ function resizeCalculations(event: UIEvent) {
 onMounted(() => {
     window.addEventListener('mousemove', update);
     window.addEventListener('resize', resizeCalculations);
-    });
-onUnmounted(() => window.removeEventListener('mousemove', update));
+});
+
+onUnmounted(() => {
+    window.removeEventListener('mousemove', update);
+    window.removeEventListener('resize', resizeCalculations);
+});
 
 </script>
 

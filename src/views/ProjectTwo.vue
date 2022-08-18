@@ -6,7 +6,13 @@
 
 
 <script setup lang="ts">
+import router from '@/router';
+import { onMounted } from 'vue';
+import { usePage } from '../services/usePage'
 
+const { pageState, getCurrentPage, switchScroll } = usePage();
+
+onMounted(() => pageState.currentPage = getCurrentPage());
 </script>
 
 <style scoped>

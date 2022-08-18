@@ -1,61 +1,66 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
-import { RouterLink, RouterView, useRoute } from "vue-router";
+import { ref } from "vue";
+import { RouterView, useRoute } from "vue-router";
 import PageIndicator from "./components/PageIndicator.vue";
 import router from "./router";
+import { usePage } from '@/services/usePage';
 
-
-let throttled = false;
-let currentPage = ref(getCurrentPage());
-const pageCount = 3;
-
-currentPage.value = getCurrentPage();
+const { pageState, wheelListener, getCurrentPage} = usePage();
 
 window.addEventListener('wheel', wheelListener);
 
-function wheelListener(event: WheelEvent) {
-  if(Math.abs(event.deltaY) < 30) return;
-  if(!throttled) {
-    throttled = true;
-    if(event.deltaY < 0) {
-      currentPage.value -= (currentPage.value === 0) ? 0 : 1;
-    } else {
-      currentPage.value += (currentPage.value < pageCount-1) ? 1 : 0;
-    }
-    
-    switch(currentPage.value) {
-      case 0:
-        router.push('/');
-        break;
-      case 1:
-        router.push('/projectone');
-        break;
-      case 2:
-        router.push('/projecttwo');
-        break;
-    }
-    
-    setTimeout(() => {
-      throttled = false;
-    }, 500);
-  }
-}
 
-function getCurrentPage() {
-  let url =  window.location.href.split('/');
-  const urlStr = url[url.length - 1];
+// let throttled = false;
+// let currentPage = ref(getCurrentPage());
+// const pageCount = 3;
 
-  switch(urlStr) {
-    case '':
-      return 0;
-    case 'projectone':
-      return 1;
-    case 'projecttwo':
-      return 2;
-    default:
-      return 0;
-  }
-}
+// currentPage.value = getCurrentPage();
+
+// window.addEventListener('wheel', wheelListener);
+
+// function wheelListener(event: WheelEvent) {
+//   if(Math.abs(event.deltaY) < 30) return;
+//   if(!throttled) {
+//     throttled = true;
+//     if(event.deltaY < 0) {
+//       currentPage.value -= (currentPage.value === 0) ? 0 : 1;
+//     } else {
+//       currentPage.value += (currentPage.value < pageCount-1) ? 1 : 0;
+//     }
+    
+//     switch(currentPage.value) {
+//       case 0:
+//         router.push('/');
+//         break;
+//       case 1:
+//         router.push('/projectone');
+//         break;
+//       case 2:
+//         router.push('/projecttwo');
+//         break;
+//     }
+    
+//     setTimeout(() => {
+//       throttled = false;
+//     }, 500);
+//   }
+// }
+
+// function getCurrentPage() {
+//   let url =  window.location.href.split('/');
+//   const urlStr = url[url.length - 1];
+//   console.log(urlStr);
+//   switch(urlStr) {
+//     case '':
+//       return 0;
+//     case 'projectone':
+//       return 1;
+//     case 'projecttwo':
+//       return 2;
+//     default:
+//       return 0;
+//   }
+// }
 
 </script>
 
@@ -65,11 +70,11 @@ function getCurrentPage() {
     <div id="github-btn"></div>
     <div id="menu-btn"></div>
   </div>
-  <div id="scroll-stuff" v-if="currentPage === 0">
+  <div id="scroll-stuff" v-if="pageState.currentPage === 0">
     <div id="scroll-line"></div>
     <div id="scroll-text">SCROLLDOWN</div>
   </div>
-  <div id="page-indicator"><PageIndicator :page-count="3" :current-page="currentPage"/></div>
+  <div id="page-indicator"><PageIndicator :page-count="3" :current-page="pageState.currentPage"/></div>
 
   <RouterView />
 </div>
