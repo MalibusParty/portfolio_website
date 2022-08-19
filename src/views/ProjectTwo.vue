@@ -10,9 +10,12 @@ import router from '@/router';
 import { onMounted } from 'vue';
 import { usePage } from '../services/usePage'
 
-const { pageState, getCurrentPage, switchScroll } = usePage();
+const { pageState, getCurrentPage, scrollOn } = usePage();
 
-onMounted(() => pageState.currentPage = getCurrentPage());
+onMounted(() => {
+    pageState.currentPage = getCurrentPage();
+    scrollOn();
+});
 </script>
 
 <style scoped>

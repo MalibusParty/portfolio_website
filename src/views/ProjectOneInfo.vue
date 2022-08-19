@@ -9,11 +9,11 @@
 import router from '@/router';
 import { usePage } from '../services/usePage';
 
-const { pageState, switchScroll } = usePage();
+const { pageState, scrollOff } = usePage();
 
 function linkFromOne() {
-    pageState.scroll = true;
-    switchScroll();
+    scrollOff();
+    pageState.transitionBehaviour = 'clickTransOut';
     router.push('/projectone');
 }
 </script>

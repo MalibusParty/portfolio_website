@@ -4,63 +4,11 @@ import { RouterView, useRoute } from "vue-router";
 import PageIndicator from "./components/PageIndicator.vue";
 import router from "./router";
 import { usePage } from '@/services/usePage';
+import { computed } from "@vue/reactivity";
 
 const { pageState, wheelListener, getCurrentPage} = usePage();
 
 window.addEventListener('wheel', wheelListener);
-
-
-// let throttled = false;
-// let currentPage = ref(getCurrentPage());
-// const pageCount = 3;
-
-// currentPage.value = getCurrentPage();
-
-// window.addEventListener('wheel', wheelListener);
-
-// function wheelListener(event: WheelEvent) {
-//   if(Math.abs(event.deltaY) < 30) return;
-//   if(!throttled) {
-//     throttled = true;
-//     if(event.deltaY < 0) {
-//       currentPage.value -= (currentPage.value === 0) ? 0 : 1;
-//     } else {
-//       currentPage.value += (currentPage.value < pageCount-1) ? 1 : 0;
-//     }
-    
-//     switch(currentPage.value) {
-//       case 0:
-//         router.push('/');
-//         break;
-//       case 1:
-//         router.push('/projectone');
-//         break;
-//       case 2:
-//         router.push('/projecttwo');
-//         break;
-//     }
-    
-//     setTimeout(() => {
-//       throttled = false;
-//     }, 500);
-//   }
-// }
-
-// function getCurrentPage() {
-//   let url =  window.location.href.split('/');
-//   const urlStr = url[url.length - 1];
-//   console.log(urlStr);
-//   switch(urlStr) {
-//     case '':
-//       return 0;
-//     case 'projectone':
-//       return 1;
-//     case 'projecttwo':
-//       return 2;
-//     default:
-//       return 0;
-//   }
-// }
 
 </script>
 
@@ -76,7 +24,11 @@ window.addEventListener('wheel', wheelListener);
   </div>
   <div id="page-indicator"><PageIndicator :page-count="3" :current-page="pageState.currentPage"/></div>
 
-  <RouterView />
+  <RouterView v-slot="{ Component }">
+    <Transition :name="pageState.transitionBehaviour" mode="out-in">
+      <component :is="Component"></component>
+    </Transition>
+  </RouterView>
 </div>
 </template>
 
@@ -92,6 +44,7 @@ body {
   left: 0;
   margin: 0;
   background-color: rgb(39, 39, 39);
+  overflow: hidden;
 }
 
 #header-btns {
@@ -164,5 +117,70 @@ body {
 
 #github-btn:hover {
   filter: drop-shadow(0 0 0.75rem white)
+}
+
+/* Route Transitions */
+.scrollTransDown-enter-from {
+  opacity: 0;
+  transform: translateY(100px);
+}
+.scrollTransDown-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.scrollTransDown-leave-to {
+  opacity: 0;
+  transform: translateY(-100px);
+}
+.scrollTransDown-leave-active {
+  transition: all 0.3s ease-in;
+}
+
+.scrollTransUp-enter-from {
+  opacity: 0;
+  transform: translateY(-100px);
+}
+.scrollTransUp-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.scrollTransUp-leave-to {
+  opacity: 0;
+  transform: translateY(100px);
+}
+.scrollTransUp-leave-active {
+  transition: all 0.3s ease-in;
+}
+
+.clickTransIn-enter-from {
+  opacity: 0;
+  transform: translateX(100px);
+}
+.clickTransIn-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.clickTransIn-leave-to {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+.clickTransIn-leave-active {
+  transition: all 0.3s ease-out;
+}
+
+.clickTransOut-enter-from {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+.clickTransOut-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.clickTransOut-leave-to {
+  opacity: 0;
+  transform: translateX(100px);
+}
+.clickTransOut-leave-active {
+  transition: all 0.3s ease-out;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div id="testPage1">
+    <div id="page1">
         <h1 @click="linkToOne">Project 1</h1>
     </div>
 </template>
@@ -10,13 +10,15 @@ import router from '@/router';
 import { onMounted } from 'vue';
 import { usePage } from '../services/usePage'
 
-const { pageState, getCurrentPage, switchScroll } = usePage();
+const { pageState, getCurrentPage, switchScroll, scrollOn, scrollOff } = usePage();
 
-onMounted(() => pageState.currentPage = getCurrentPage());
+onMounted(() => {
+    pageState.currentPage = getCurrentPage();
+    scrollOn();
+});
 
 function linkToOne() {
-    pageState.scroll = false;
-    switchScroll();
+    scrollOff();
     router.push('/projectone/info');
 }
 
@@ -24,7 +26,7 @@ function linkToOne() {
 
 <style scoped>
 
-#testPage1 {
+#page1 {
     background-color: aqua;
     height: 100vh;
     width: 100vw;

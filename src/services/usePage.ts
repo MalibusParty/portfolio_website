@@ -4,6 +4,7 @@ import { reactive } from "vue";
 interface IPageState {
     throttled: boolean,
     scroll: boolean,
+    transitionBehaviour: string,
     currentPage: number,
     pageCount: number
 }
@@ -11,6 +12,7 @@ interface IPageState {
 const pageState = reactive<IPageState>({
     throttled: false,
     scroll: false,
+    transitionBehaviour: 'scrollTransDown',
     currentPage: getCurrentPage(),
     pageCount: 3
 })
@@ -23,8 +25,10 @@ function wheelListener(event: WheelEvent) {
         pageState.throttled = true;
         if(event.deltaY < 0) {
             pageState.currentPage -= (pageState.currentPage === 0) ? 0 : 1;
+            pageState.transitionBehaviour = 'scrollTransUp';
         } else {
             pageState.currentPage += (pageState.currentPage < pageState.pageCount-1) ? 1 : 0;
+            pageState.transitionBehaviour = 'scrollTransDown';
         }
         
         switch(pageState.currentPage) {
@@ -69,11 +73,29 @@ function switchScroll() {
     }
 }
 
+function scrollOn() {
+    if(!pageState.scroll) {
+        pageState.scroll = true;
+        pageState.transitionBehaviour = 'scrollTransDown';
+        window.addEventListener('wheel', wheelListener);
+    }
+}
+
+function scrollOff() {
+    if(pageState.scroll) {
+        pageState.scroll = false;
+        pageState.transitionBehaviour = 'clickTransIn';
+        window.removeEventListener('wheel', wheelListener);
+    }
+}
+
 export function usePage() {
     return {
         pageState,
         wheelListener,
         getCurrentPage,
-        switchScroll
+        switchScroll,
+        scrollOn,
+        scrollOff
     }
 }
