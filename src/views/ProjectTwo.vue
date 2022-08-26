@@ -1,6 +1,8 @@
 <template>
     <div id="testPage2">
-        <h1>Project 2</h1>
+        <div id="testId">
+            <ImgConverter :x-dimension="130" :y-dimension="130"/>
+        </div>
     </div>
 </template>
 
@@ -8,7 +10,9 @@
 <script setup lang="ts">
 import router from '@/router';
 import { onMounted } from 'vue';
-import { usePage } from '../services/usePage'
+import { usePage } from '../services/usePage';
+import ImgConverter from '@/components/imgConverter.vue';
+
 
 const { pageState, getCurrentPage, scrollOn } = usePage();
 
@@ -26,15 +30,9 @@ onMounted(() => {
     width: 100vw;
 }
 
-h1 {
+#testId {
     position: absolute;
-    margin-left: 50%;
     margin-right: auto;
-    margin-top: 50vh;
-
-    padding: 21.5vh;
-
     font-size: 60pt;
-    background-color: crimson;
 }
 </style>

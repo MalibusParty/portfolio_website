@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
 import { nextTick, onMounted, onUnmounted } from 'vue';
-import { createBinaryImg, scaleImgDown, getPixel } from '@/services/imgScaleLib';
+import { createBinaryImg, scaleImgDown } from '@/services/imgScaleLib';
 
 const props = defineProps<{
         xDimension: number,

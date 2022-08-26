@@ -183,4 +183,19 @@ body {
 .clickTransOut-leave-active {
   transition: all 0.3s ease-out;
 }
+
+/* global buttons */
+.link-btn {
+  padding: 20px;
+  border-radius: 20px;
+  border: solid 3px white;
+  font-size: 24pt;
+  font-weight: bold;
+  background-color: rgb(255, 163, 83);
+  cursor: pointer;
+}
+
+.link-btn:hover {
+  background-color: rgb(230, 139, 60);
+}
 </style>

@@ -35,3 +35,23 @@ export function scaleImgDown(pixelArray, newWidth, newHeight, width, height) {
 export function getPixel(pixelArray, x, y, width) {
     return pixelArray[y * width + x]
 }
+
+export function readImgFile(imgId, newWidth, newHeight) {
+    let canvas = document.createElement("canvas");
+    //const canvas = document.getElementById(imgId);
+    const ctx = canvas.getContext('2d');
+    let img = new Image();
+    img.onload = function () {
+        let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        let pixArr = new Array(imgData.data.length / 4);
+        const data = imgData.data;
+
+        let counter = 0;
+        for(let i = 0; i < data.length; i+4) {
+            pixArr[counter++] = (data[i] * 0.299 + data[i+1] * 0.587 + data[i+2] * 0.114) * data[i+3];
+        }
+
+        return scaleImgDown(pixArr, newWidth, newHeight, canvas.width, canvas.height);
+    };
+    img.src = document.getElementById(imgId).src;
+}
