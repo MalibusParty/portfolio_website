@@ -17,6 +17,8 @@ export function createBinaryImg(canvasId) {
 }
 
 export function scaleImgDown(pixelArray, newWidth, newHeight, width, height) {
+    newWidth = newWidth | 0;
+    newHeight = newHeight | 0;
     let outputArr = new Array(newWidth*newHeight);
     const scaleX = newWidth / width;
     const scaleY = newHeight / height;

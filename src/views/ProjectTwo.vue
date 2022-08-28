@@ -1,7 +1,7 @@
 <template>
     <div id="testPage2">
         <div id="testId">
-            <ImgConverter :x-dimension="130" :y-dimension="130"/>
+            <ImgConverter :x-dimension="100" :img-path="portrait"/>
         </div>
     </div>
 </template>
@@ -12,6 +12,7 @@ import router from '@/router';
 import { onMounted } from 'vue';
 import { usePage } from '../services/usePage';
 import ImgConverter from '@/components/imgConverter.vue';
+import portrait from '@/assets/portrait_small.png';
 
 
 const { pageState, getCurrentPage, scrollOn } = usePage();

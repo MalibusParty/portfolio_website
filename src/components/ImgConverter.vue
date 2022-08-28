@@ -10,21 +10,21 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue';
-import { scaleImgDown, readImgFile } from '@/services/imgScaleLib';
-import portrait from '@/assets/portrait_small.png';
+import { scaleImgDown } from '@/services/imgScaleLib';
 
 const props = defineProps<{
     xDimension: number,
-    yDimension: number
+    imgPath: string
 }>();
 
-const pixels = props.xDimension * props.yDimension;
+const pixels = props.xDimension * props.xDimension;
 
 let pixelArr: Array<HTMLElement>;
 let newImg = new Image();
 
 onMounted(() => {
     newImg.onload = () => {
+        const scaleFactor = props.xDimension / newImg.width;
         const canvas: any = document.getElementById('myTestCanvas');
         const ctx = canvas.getContext('2d');
         canvas.width = newImg.width;
@@ -33,8 +33,7 @@ onMounted(() => {
         let imgData: ImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
         const data: Uint8ClampedArray = imgData.data;
         let pixArr = blackWhiteImg(data);
-        createGrid(scaleImgDown(pixArr, props.xDimension, props.yDimension, canvas.width, canvas.height));
-        console.log('hi');
+        createGrid(scaleImgDown(pixArr, canvas.width * scaleFactor, canvas.height * scaleFactor, canvas.width, canvas.height));
     }
 });
 
@@ -50,14 +49,14 @@ function blackWhiteImg(imgData: Uint8ClampedArray) {
     return outputArray;
 }
 
-newImg.src = portrait;
+newImg.src = props.imgPath;
 
 function createGrid(imgData: number[]) {
     pixelArr = Array.from(document.querySelectorAll('.pixel'));
     let finalArr = [];
     let arrCounter = 0;
     for(let i = 1; i <= props.xDimension; i++) {
-        for(let j = 1; j <= props.yDimension; j++) {
+        for(let j = 1; j <= props.xDimension; j++) {
             let ele: HTMLElement = pixelArr[arrCounter];
             const widthFromColor = calcWidthFromColor(imgData[arrCounter], 10, 1);
             if(imgData[arrCounter++] > 0) {
