@@ -14,7 +14,8 @@ import { scaleImgDown } from '@/services/imgScaleLib';
 
 const props = defineProps<{
     xDimension: number,
-    imgPath: string
+    imgPath: string,
+    color: string
 }>();
 
 const pixels = props.xDimension * props.xDimension;
@@ -61,7 +62,7 @@ function createGrid(imgData: number[]) {
             const widthFromColor = calcWidthFromColor(imgData[arrCounter], 10, 1);
             if(imgData[arrCounter++] > 0) {
                 ele.style.gridArea = `${j} / ${i} / span 1 / span 1`;
-                ele.style.backgroundColor = "white";
+                ele.style.backgroundColor = props.color;
                 ele.style.width = `${widthFromColor}px`;
                 ele.style.height = `${widthFromColor}px`;
                 finalArr.push(ele);
