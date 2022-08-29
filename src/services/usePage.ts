@@ -52,7 +52,6 @@ function wheelListener(event: WheelEvent) {
 function getCurrentPage() {
     const url =  window.location.href.split('/');
     const urlStr = url[url.length - 1];
-    console.log(urlStr);
     switch(urlStr) {
         case '':
             return 0;

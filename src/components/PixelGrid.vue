@@ -116,8 +116,8 @@ onUnmounted(() => {
     align-items: center;
     justify-items: center;
     gap: 0.25vw;
-    grid-auto-rows: 0.15vw;
-    grid-auto-columns: 0.15vw;
+    grid-auto-rows: 0.12vw;
+    grid-auto-columns: 0.12vw;
 }
 
 .pixel {

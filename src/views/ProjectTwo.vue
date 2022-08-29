@@ -1,8 +1,6 @@
 <template>
     <div id="testPage2">
-        <div id="testId">
-            <ImgConverter :x-dimension="100" :img-path="portrait" :color="'#ffffff'"/>
-        </div>
+        
     </div>
 </template>
 

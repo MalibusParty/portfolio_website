@@ -1,7 +1,7 @@
 <template>
     <div>
         <div id="pixelPic">
-            <div class="pixel" v-for="pix in pixels" v-bind:key="pix"></div>
+            <div class="pixelP" v-for="pixx in pixelCount" v-bind:key="pixx"></div>
         </div>
         <canvas hidden id="myTestCanvas"></canvas>
     </div>
@@ -18,7 +18,7 @@ const props = defineProps<{
     color: string
 }>();
 
-const pixels = props.xDimension * props.xDimension;
+const pixelCount = props.xDimension * props.xDimension;
 
 let pixelArr: Array<HTMLElement>;
 let newImg = new Image();
@@ -53,13 +53,13 @@ function blackWhiteImg(imgData: Uint8ClampedArray) {
 newImg.src = props.imgPath;
 
 function createGrid(imgData: number[]) {
-    pixelArr = Array.from(document.querySelectorAll('.pixel'));
+    pixelArr = Array.from(document.querySelectorAll('.pixelP'));
     let finalArr = [];
     let arrCounter = 0;
     for(let i = 1; i <= props.xDimension; i++) {
         for(let j = 1; j <= props.xDimension; j++) {
             let ele: HTMLElement = pixelArr[arrCounter];
-            const widthFromColor = calcWidthFromColor(imgData[arrCounter], 10, 1);
+            const widthFromColor = calcWidthFromColor(imgData[arrCounter], 9, 1);
             if(imgData[arrCounter++] > 0) {
                 ele.style.gridArea = `${j} / ${i} / span 1 / span 1`;
                 ele.style.backgroundColor = props.color;
@@ -90,11 +90,11 @@ function calcWidthFromColor(color: number, maxWidth: number, minWidth: number) {
     align-items: center;
     justify-items: center;
     gap: 0.25vw;
-    grid-auto-rows: 0.15vw;
-    grid-auto-columns: 0.15vw;
+    grid-auto-rows: 0.12vw;
+    grid-auto-columns: 0.12vw;
 }
 
-.pixel {
+.pixelP {
     border-radius: 50%;
 }
 </style>

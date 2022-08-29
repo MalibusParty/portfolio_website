@@ -33,7 +33,6 @@ window.addEventListener('wheel', wheelListener);
 </template>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 * {
   box-sizing: border-box;
@@ -43,7 +42,7 @@ body {
   top: 0;
   left: 0;
   margin: 0;
-  background-color: rgb(39, 39, 39);
+  background-image: linear-gradient(165deg, #191970, #000000);
   overflow: hidden;
 }
 
@@ -96,7 +95,7 @@ body {
 
   transform: rotate(90deg);
 
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Arial', sans-serif;
   text-align: center;
   font-size: 1.7vh;
   font-weight: 100;
