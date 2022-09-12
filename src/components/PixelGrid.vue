@@ -22,6 +22,7 @@ let pixArr;
 let newImg: number[];
 let posOfEle: number[][];
 let pixelMaxWidth = (window.innerWidth / 320) | 0;
+const MIN_PIXEL_SIZE = 3;
 
 nextTick(() =>{
     pixArr = createBinaryImg('testCanvas');
@@ -43,6 +44,8 @@ function createGrid() {
             if(newImg[arrCounter++] === 1) {
                 ele.style.gridArea = `${j} / ${i} / span 1 / span 1`;
                 ele.style.backgroundColor = "white";
+                ele.style.width = `${MIN_PIXEL_SIZE}px`;
+                ele.style.height = `${MIN_PIXEL_SIZE}px`;
                 finalArr.push(ele);
             } else {
                 ele.style.gridArea = `${j} / ${i} / span 1 / span 1`;
@@ -74,7 +77,7 @@ function update(event: MouseEvent) {
             maxDistanceDistance = 1;
         }
         //const zIndex = calcZIndex(maxDistanceDistance, 10, 0);
-        const newWidth = calcWidth(maxDistanceDistance, pixelMaxWidth, 3);
+        const newWidth = calcWidth(maxDistanceDistance, pixelMaxWidth, MIN_PIXEL_SIZE);
         ele.style.width = `${newWidth}px`;
         ele.style.height = `${newWidth}px`;
         //ele.style.zIndex = `${zIndex}`;

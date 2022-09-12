@@ -42,7 +42,6 @@ function linkToOne() {
     width: 65%;
     font-size: 60pt;
     background-color: crimson;
-
     cursor: pointer;
 }
 

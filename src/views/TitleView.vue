@@ -1,6 +1,5 @@
 <template>
     <div>
-        <div id="personal_logo"></div>
         <div id="duo-flex">
             <div id="grid-container">
                 <div id="name-tag">FELIX<br>RUF</div>
@@ -83,10 +82,11 @@ onMounted(() => {
 #portrait-container {
     align-self: flex-end;
     margin-left: 5vw;
+    z-index: -1;
 }
 
 #duo-flex {
     display: flex;
-    height: 90vh;
+    height: 95vh;
 }
 </style>
