@@ -1,9 +1,16 @@
 <template>
-    <div id="page1">
-        <div id="btn-box1">
-            <button id="btn-one" class="link-btn" @click="linkToOne">Details</button>
+    <div class="project-page">
+        <div class="page-left-side">
+            <HeaderMainTextComponent>
+                <template #headline>
+                    <p>SPAsS - Study Planner</p>
+                </template>
+                <template #default>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                </template>
+            </HeaderMainTextComponent>
         </div>
-        <div id="title-box" @click="linkToOne">
+        <div class="page-right-side" @click="linkToOne">
             <img src="@/assets/SPAsS/study_stock.jpg" alt="Studyplaner">
         </div>
     </div>
@@ -14,6 +21,7 @@
 import router from '@/router';
 import { onMounted } from 'vue';
 import { usePage } from '../services/usePage'
+import HeaderMainTextComponent from '../components/HeaderMainTextComponent.vue'
 
 const { pageState, getCurrentPage, switchScroll, scrollOn, scrollOff } = usePage();
 
@@ -31,28 +39,27 @@ function linkToOne() {
 
 <style scoped>
 
-#page1 {
+.project-page {
 
-    height: 100vh;
-    width: 100vw;
+    height: 95vh;
+    width: 90vw;
     display: flex;
+
+    margin-left: 10%;
 }
 
-#title-box {
-    width: 65%;
+.page-right-side {
+    width: 60%;
     font-size: 60pt;
     background-color: crimson;
     cursor: pointer;
 }
 
-#btn-box1 {
-    width: 30%;
+.page-left-side {
+    width: 40%;
+    padding: 30vh 10vw 0 0vw;
 }
 
-#btn-one {
-    margin-top: 75%;
-    margin-left: 40%;
-}
 
 img {
     max-width: 100%;

@@ -17,8 +17,8 @@
 <style scoped>
 #two-edge-grid-container {
     display: grid;
-    grid-template-columns: 0.5em auto 0.5em;
-    grid-template-rows: 0.5em auto 0.5em;
+    grid-template-columns: 40px auto 40px;
+    grid-template-rows: 40px auto 40px;
 }
 
 #two-edge-left-upper {

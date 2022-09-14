@@ -6,6 +6,7 @@ interface IPageState {
     scroll: boolean,
     transitionBehaviour: string,
     currentPage: number,
+    currentRoute: string,
     pageCount: number
 }
 
@@ -14,6 +15,7 @@ const pageState = reactive<IPageState>({
     scroll: false,
     transitionBehaviour: 'scrollTransDown',
     currentPage: getCurrentPage(),
+    currentRoute: '',
     pageCount: 3
 })
 
