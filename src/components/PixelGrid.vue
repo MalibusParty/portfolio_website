@@ -130,7 +130,7 @@ onUnmounted(() => {
 #mousePos {
     font-size: 18pt;
     font-weight: bolder;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
     color: white;
 }
 

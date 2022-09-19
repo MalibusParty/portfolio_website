@@ -19,7 +19,7 @@ import TwoEdgeContainer from "./TwoEdgeContainer.vue";
 #header-main-text-container {
     display: flex;
     flex-direction: column;
-    font-family: 'Arial', 'sans-serif';
+    font-family: 'Segoe UI', 'Arial', 'sans-serif';
 }
 
 #header-main-headline-item {

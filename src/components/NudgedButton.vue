@@ -27,7 +27,7 @@ function linkToInfoPage() {
     text-align: center;
     width: fit-content;
     padding: 0px 40px 0px 40px;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
     font-size: 18pt;
     line-height: 6pt;
     transform: skew(-30deg);

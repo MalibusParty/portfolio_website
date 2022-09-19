@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="page-right-side" @click="linkToOne">
-            <img src="@/assets/SPAsS/study_stock.jpg" alt="Studyplaner">
+            <PicAndNumberContainer/>
         </div>
     </div>
 </template>
@@ -26,6 +26,7 @@ import { onMounted } from 'vue';
 import { usePage } from '../services/usePage'
 import HeaderMainTextComponent from '../components/HeaderMainTextComponent.vue'
 import NudgedButton from '../components/NudgedButton.vue'
+import PicAndNumberContainer from '../components/PicAndNumberContainer.vue'
 
 const { pageState, getCurrentPage, switchScroll, scrollOn, scrollOff } = usePage();
 
@@ -50,18 +51,18 @@ function linkToOne() {
     display: flex;
 
     margin-left: 10%;
+
 }
 
 .page-right-side {
     width: 60%;
     font-size: 60pt;
-    background-color: crimson;
     cursor: pointer;
 }
 
 .page-left-side {
     width: 40%;
-    padding: 30vh 10vw 0 0vw;
+    padding: 20vh 10vw 0 0vw;
 }
 
 

@@ -54,7 +54,7 @@ onMounted(() => {
 }
 
 #name-tag {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
     font-size: 50pt;
     font-weight: 700;
     margin: 3vh 0vw;
@@ -64,7 +64,7 @@ onMounted(() => {
 }
 
 #intro-text {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
     font-size: 18pt;
     font-weight: lighter;
     font-style: oblique;
