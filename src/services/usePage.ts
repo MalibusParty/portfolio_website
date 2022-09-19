@@ -33,17 +33,7 @@ function wheelListener(event: WheelEvent) {
             pageState.transitionBehaviour = 'scrollTransDown';
         }
         
-        switch(pageState.currentPage) {
-            case 0:
-            router.push('/');
-            break;
-            case 1:
-            router.push('/projectone');
-            break;
-            case 2:
-            router.push('/projecttwo');
-            break;
-        }
+        router.push(getPageLink(pageState.currentPage));
         
         setTimeout(() => {
             pageState.throttled = false;
@@ -63,6 +53,19 @@ function getCurrentPage() {
             return 2;
         default:
             return 0;
+    }
+}
+
+function getPageLink(pageNumber: number) {
+    switch(pageState.currentPage) {
+        case 0:
+            return '/';
+        case 1:
+            return '/projectone';
+        case 2:
+            return '/projecttwo';
+        default:
+            return '/';
     }
 }
 
@@ -95,6 +98,7 @@ export function usePage() {
         pageState,
         wheelListener,
         getCurrentPage,
+        getPageLink,
         switchScroll,
         scrollOn,
         scrollOff

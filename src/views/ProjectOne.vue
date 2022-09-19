@@ -9,6 +9,9 @@
                     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
                 </template>
             </HeaderMainTextComponent>
+            <div id="ndgd-btn">
+                <NudgedButton nudged-btn-text="Details"></NudgedButton>
+            </div>
         </div>
         <div class="page-right-side" @click="linkToOne">
             <img src="@/assets/SPAsS/study_stock.jpg" alt="Studyplaner">
@@ -22,6 +25,7 @@ import router from '@/router';
 import { onMounted } from 'vue';
 import { usePage } from '../services/usePage'
 import HeaderMainTextComponent from '../components/HeaderMainTextComponent.vue'
+import NudgedButton from '../components/NudgedButton.vue'
 
 const { pageState, getCurrentPage, switchScroll, scrollOn, scrollOff } = usePage();
 
@@ -67,5 +71,10 @@ img {
     padding-top: 10%;
     padding-left: 15%;
     padding-bottom: 5%;
+}
+
+#ndgd-btn {
+    margin-top: 40px;
+    margin-left: 40px;
 }
 </style>
