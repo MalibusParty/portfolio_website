@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="page-right-side" @click="linkToOne">
-            <PicAndNumberContainer/>
+            <PicAndNumberContainer :img-path="ProjectOnePic"/>
         </div>
     </div>
 </template>
@@ -27,6 +27,7 @@ import { usePage } from '../services/usePage'
 import HeaderMainTextComponent from '../components/HeaderMainTextComponent.vue'
 import NudgedButton from '../components/NudgedButton.vue'
 import PicAndNumberContainer from '../components/PicAndNumberContainer.vue'
+import ProjectOnePic from '@/assets/SPAsS/study_stock.jpg';
 
 const { pageState, getCurrentPage, switchScroll, scrollOn, scrollOff } = usePage();
 

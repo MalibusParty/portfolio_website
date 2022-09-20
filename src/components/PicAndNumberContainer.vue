@@ -1,15 +1,31 @@
 <template>
     <div class="pic-and-number-container">
         <div class="pic-container">
-            <div class="pic-item"></div>
+            <div id="pic-item"></div>
         </div>
-        <div id="number-item">1</div>
+        <div id="number-item">{{ pageNumber }}</div>
     </div>
 </template>
 
 
 <script setup lang="ts">
+import { usePage } from '@/services/usePage';
+import { onMounted } from 'vue';
 
+const { getCurrentPage } = usePage();
+
+const props = defineProps<{
+    imgPath: string
+}>();
+
+onMounted(() => {
+    const picEle = document.getElementById('pic-item');
+    if(picEle != null) {
+        picEle.style.backgroundImage = `url(${props.imgPath})`;
+    }
+})
+
+const pageNumber = getCurrentPage();
 </script>
 
 
@@ -22,11 +38,12 @@
     flex-direction: column;
 }
 
-.pic-item {
-    background-image: url('@/assets/SPAsS/study_stock.jpg');
+#pic-item {
+
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    object-fit: cover;
     max-width: 100%;
     max-height: 100%;
     margin: 7% 10% 15% 0%;
