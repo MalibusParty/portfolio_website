@@ -1,14 +1,12 @@
 <template>
     <div id="indicatorGrid">
         <div class="circleItem" v-for="page in pages" v-bind:key="page"></div>
-        
     </div>
 </template>
 
 
 <script setup lang="ts">
-import { nextTick,  onMounted,  watchEffect } from 'vue';
-
+import { nextTick, watchEffect } from 'vue';
 
 const props = defineProps<{
     pageCount: number,

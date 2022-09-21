@@ -6,6 +6,7 @@ import router from "./router";
 import { usePage } from '@/services/usePage';
 import { computed } from "@vue/reactivity";
 import MenuBar from "./components/MenuBar.vue";
+import BackFromInfoButton from '@/components/BackFromInfoButton.vue';
 
 const { pageState, wheelListener, getCurrentPage } = usePage();
 
@@ -21,7 +22,10 @@ window.addEventListener('wheel', wheelListener);
             <div id="scroll-line"></div>
             <div id="scroll-text">SCROLLDOWN</div>
         </div>
-        <div id="page-indicator">
+        <div id="back-from-info-btn">
+            <BackFromInfoButton/>
+        </div>
+        <div id="page-indicator" v-if="pageState.scroll">
             <PageIndicator :page-count="3" :current-page="pageState.currentPage" />
         </div>
 
@@ -86,6 +90,12 @@ MenuBar {
 
     top: 45vh;
     left: 1.5vw;
+}
+
+#back-from-info-btn {
+    position: absolute;
+    margin-top: 3vh;
+    margin-left: 2vw;
 }
 
 /* Route Transitions */

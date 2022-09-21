@@ -1,9 +1,11 @@
 <template>
     <div class="pic-and-number-container">
         <div class="pic-container">
-            <div id="pic-item"></div>
+            <div id="pic-item">
+                <div id="number-item">{{ pageNumber }}</div>
+            </div>
         </div>
-        <div id="number-item">{{ pageNumber }}</div>
+        
     </div>
 </template>
 
@@ -56,17 +58,15 @@ const pageNumber = getCurrentPage();
 }
 
 #number-item {
-    display: grid;
-    position: absolute;
+    position: relative;
+    top: calc(100% - 190px);
+    left: calc(100% - 230px);
     width: 15%;
     height: 50%;
     color: #FF7A50;
     font-size: 500pt;
-    bottom: 50px;
-    right: 20px;
     line-height: 0;
     font-family:Georgia, 'Times New Roman', Times, serif;
-    place-content: center;
     filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.35));
 }
 </style>
