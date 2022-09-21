@@ -33,7 +33,7 @@ function wheelListener(event: WheelEvent) {
             pageState.transitionBehaviour = 'scrollTransDown';
         }
         
-        router.push(getPageLink(pageState.currentPage));
+        router.push(getPageLink());
         
         setTimeout(() => {
             pageState.throttled = false;
@@ -56,7 +56,7 @@ function getCurrentPage() {
     }
 }
 
-function getPageLink(pageNumber: number) {
+function getPageLink() {
     switch(pageState.currentPage) {
         case 0:
             return '/';

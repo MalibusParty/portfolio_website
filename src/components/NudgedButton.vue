@@ -15,7 +15,7 @@ const props = defineProps<{
 
 function linkToInfoPage() {
     scrollOff();
-    router.push(getPageLink(getCurrentPage())+ '/info');
+    router.push(getPageLink()+ '/info');
 }
 </script>
 

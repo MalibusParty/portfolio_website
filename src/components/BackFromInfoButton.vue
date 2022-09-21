@@ -16,7 +16,7 @@ const { pageState, scrollOff, getCurrentPage, getPageLink } = usePage();
 function linkBackFromInfo() {
     scrollOff();
     pageState.transitionBehaviour = 'clickTransOut';
-    router.push(getPageLink(getCurrentPage()));
+    router.push(getPageLink());
 }
 
 
