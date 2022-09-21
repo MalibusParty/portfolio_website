@@ -1,24 +1,23 @@
 <template>
-    <div>
-        <div id="duo-flex">
-            <div id="grid-container">
-                <div id="name-tag"><TwoEdgeContainer>FELIX<br>RUF</TwoEdgeContainer></div>
-                <div id="pixelGrid">
-                    <PixelGrid :x-dimension="120" :y-dimension="120"/>
-                </div>
-                <div id="intro-text">I currently study Media Computer Science at the RheinMain University of Applied Sciences</div>
+
+    <div id="duo-flex">
+        <div id="grid-container">
+            <div id="name-tag"><TwoEdgeContainer>FELIX<br>RUF</TwoEdgeContainer></div>
+            <div id="pixelGrid">
+                <PixelGrid :x-dimension="120" :y-dimension="120"/>
             </div>
-            <div id="portrait-container">
-                <ImgConverter :x-dimension="100" :img-path="portrait" :color="'#ffffff'"/>
-            </div>
+            <div id="intro-text">I currently study Media Computer Science at the RheinMain University of Applied Sciences</div>
+        </div>
+        <div id="portrait-container">
+            <ImgConverter :x-dimension="100" :img-path="portrait" :color="'#ffffff'"/>
         </div>
     </div>
+
 </template>
 
 
 <script setup lang="ts">
 import PixelGrid from '@/components/PixelGrid.vue';
-import router from '@/router';
 import { onMounted } from 'vue';
 import { usePage } from '../services/usePage';
 import ImgConverter from '@/components/imgConverter.vue';
@@ -40,7 +39,7 @@ onMounted(() => {
     display: flex;
     width: 70%;
     margin-left: 10vw;
-    margin-top: 5vh;
+    margin-top: calc(5vh + 85px);
     flex-direction: column;
 }
 
@@ -89,6 +88,7 @@ onMounted(() => {
 
 #duo-flex {
     display: flex;
-    height: 95vh;
+    height: 100vh;
+    overflow: hidden;
 }
 </style>

@@ -47,12 +47,14 @@ function linkToOne() {
 
 .project-page {
 
-    height: 95vh;
+    height: 100%;
     width: 90vw;
     display: flex;
 
     margin-left: 10%;
+    padding-top: 85px;
 
+    overflow: hidden;
 }
 
 .page-right-side {

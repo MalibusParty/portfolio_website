@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import { RouterView, useRoute } from "vue-router";
+import { RouterView } from "vue-router";
 import PageIndicator from "./components/PageIndicator.vue";
-import router from "./router";
 import { usePage } from '@/services/usePage';
-import { computed } from "@vue/reactivity";
 import MenuBar from "./components/MenuBar.vue";
 import BackFromInfoButton from '@/components/BackFromInfoButton.vue';
+import ScrollDownInfo from './components/ScrollDownInfo.vue';
 
 const { pageState, wheelListener, getCurrentPage } = usePage();
 
@@ -17,10 +15,11 @@ window.addEventListener('wheel', wheelListener);
 <template>
 
     <div class="main">
-        <MenuBar></MenuBar>
-        <div id="scroll-stuff" v-if="pageState.currentPage === 0">
-            <div id="scroll-line"></div>
-            <div id="scroll-text">SCROLLDOWN</div>
+        <div id="menu-bar">
+            <MenuBar></MenuBar>
+        </div>
+        <div id="scroll-stuff" v-if="pageState.currentPage === 0 || !pageState.scroll">
+            <ScrollDownInfo/>
         </div>
         <div id="back-from-info-btn">
             <BackFromInfoButton/>
@@ -28,12 +27,13 @@ window.addEventListener('wheel', wheelListener);
         <div id="page-indicator" v-if="pageState.scroll">
             <PageIndicator :page-count="3" :current-page="pageState.currentPage" />
         </div>
-
-        <RouterView v-slot="{ Component }">
-            <Transition :name="pageState.transitionBehaviour" mode="out-in">
-                <component :is="Component"></component>
-            </Transition>
-        </RouterView>
+        <div id="router-box">
+            <RouterView v-slot="{ Component }">
+                <Transition :name="pageState.transitionBehaviour" mode="out-in">
+                    <component :is="Component"></component>
+                </Transition>
+            </RouterView>
+        </div>
     </div>
 </template>
 
@@ -47,42 +47,20 @@ body {
     left: 0;
     margin: 0;
     background-image: linear-gradient(165deg, #191970, #000000);
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
-MenuBar {
+#menu-bar {
+    top: 0;
+    width: 100%;
     position: fixed;
     z-index: 10;
 }
 
 #scroll-stuff {
-    display: flex;
-    flex-direction: column;
-
-    bottom: 0;
-    left: -1vw;
-
-    position: fixed;
-}
-
-#scroll-line {
-    border-left: 4px solid white;
-    height: 10vh;
-    margin-left: 6vh;
-}
-
-#scroll-text {
-    position: fixed;
-    bottom: 16vh;
-
-    transform: rotate(90deg);
-
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-    font-size: 1.7vh;
-    font-weight: 100;
-    letter-spacing: 0.2vh;
-    color: white;
+    position: absolute;
+    bottom: 130px;
+    left: -70px;
 }
 
 #page-indicator {
@@ -93,9 +71,13 @@ MenuBar {
 }
 
 #back-from-info-btn {
-    position: absolute;
-    margin-top: 3vh;
+    position: fixed;
+    margin-top: calc(3vh + 85px);
     margin-left: 2vw;
+}
+
+#router-box {
+    height: 100vh;
 }
 
 /* Route Transitions */

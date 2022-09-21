@@ -18,6 +18,7 @@
     flex-direction: row;
     background-image: linear-gradient(165deg, #191970, #121243);
     height: 85px;
+    width: 100%;
     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
 }
 
