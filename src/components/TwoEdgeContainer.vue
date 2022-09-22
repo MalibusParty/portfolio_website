@@ -19,6 +19,7 @@
     display: grid;
     grid-template-columns: 40px auto 40px;
     grid-template-rows: 40px auto 40px;
+    width: fit-content;
 }
 
 #two-edge-left-upper {
