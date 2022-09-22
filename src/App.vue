@@ -5,10 +5,15 @@ import { usePage } from '@/services/usePage';
 import MenuBar from "./components/MenuBar.vue";
 import BackFromInfoButton from '@/components/BackFromInfoButton.vue';
 import ScrollDownInfo from './components/ScrollDownInfo.vue';
+import { onMounted } from "vue";
 
-const { pageState, wheelListener, getCurrentPage } = usePage();
+const { pageState, wheelListener, getCurrentPage, getPageLink } = usePage();
 
 window.addEventListener('wheel', wheelListener);
+
+onMounted(() => {
+    pageState.currentPage = getCurrentPage();
+});
 
 </script>
 

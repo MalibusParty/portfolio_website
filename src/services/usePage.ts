@@ -1,6 +1,8 @@
 import router from "@/router";
 import { reactive } from "vue";
 
+// TODO: switch to state pattern for less headaches
+
 interface IPageState {
     throttled: boolean,
     scroll: boolean,
@@ -41,18 +43,26 @@ function wheelListener(event: WheelEvent) {
     }
 }
 
-function getCurrentPage() {
-    const url =  window.location.href.split('/');
-    const urlStr = url[url.length - 1];
-    switch(urlStr) {
-        case '':
-            return 0;
-        case 'projectone':
-            return 1;
-        case 'projecttwo':
-            return 2;
-        default:
-            return 0;
+function getCurrentPage(): number {
+    // const url =  window.location.href.split('/');
+    // const urlStr = url[url.length - 1];
+    // switch(urlStr) {
+    //     case '':
+    //         return 0;
+    //     case 'projectone':
+    //         return 1;
+    //     case 'projecttwo':
+    //         return 2;
+    //     default:
+    //         return 0;
+    // }
+    const url = window.location.href
+    if(url.includes('projectone')) {
+        return 1;
+    } else if(url.includes('projecttwo')) {
+        return 2;
+    } else {
+        return 0;
     }
 }
 
@@ -66,6 +76,15 @@ function getPageLink() {
             return '/projecttwo';
         default:
             return '/';
+    }
+}
+
+function getGithubLink(): string {
+    switch(pageState.currentPage) {
+        case 0:
+            return 'https://github.com/MalibusParty';
+        default:
+            return 'https://github.com/MalibusParty';
     }
 }
 
@@ -99,6 +118,7 @@ export function usePage() {
         wheelListener,
         getCurrentPage,
         getPageLink,
+        getGithubLink,
         switchScroll,
         scrollOn,
         scrollOff

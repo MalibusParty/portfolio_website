@@ -28,8 +28,8 @@ onMounted(() => {
     display: flex;
     flex-direction: row;
     margin-left: 5%;
-    height: calc(100vh - 85px);
     width: 95vw;
+    height: 100vh;
 }
 
 .info-landing-page-left-item {
@@ -54,7 +54,7 @@ onMounted(() => {
     background-size: cover;
     max-width: 100%;
     max-height: 100%;
-    height: 100%;
+    height: calc(100vh - 85px);
     width: 65%;
     margin-top: 85px;
 }

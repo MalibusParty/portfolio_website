@@ -8,9 +8,14 @@
                 </HeadlineDotText>
             </template>
             <template #left-side-btn>
-                <NudgedButton nudged-btn-text="Github"></NudgedButton>
+                <GithubTextBtn/>
             </template>
         </InfoLandingPage>
+        <InfoMiddleImage>
+            <template #default>
+                <img id="info-middle-img-loader" src="@/assets/SPAsS/Loader.png">
+            </template>
+        </InfoMiddleImage>
     </div>
 </template>
 
@@ -19,10 +24,17 @@ import router from '@/router';
 import { usePage } from '../services/usePage';
 import InfoLandingPage from '../components/InfoLandingPage.vue';
 import HeadlineDotText from '../components/HeadlineDotText.vue';
-import NudgedButton from '../components/NudgedButton.vue';
 import ProjectOnePic from '../assets/SPAsS/study_stock.jpg';
+import GithubTextBtn from '../components/GithubTextBtn.vue';
+import InfoMiddleImage from '../components/InfoMiddleImage.vue';
+import { onMounted } from 'vue';
 
-const { pageState, scrollOff } = usePage();
+const { pageState, scrollOn, scrollOff } = usePage();
+
+onMounted(() => {
+    pageState.scroll = true;
+    scrollOff();
+});
 
 function linkFromOne() {
     scrollOff();
@@ -33,5 +45,10 @@ function linkFromOne() {
 
 <style scoped>
 
+#info-middle-img-loader {
+    object-fit: fill;
+    height: 100%;
+    max-width: 100%;
+}
 
 </style>
