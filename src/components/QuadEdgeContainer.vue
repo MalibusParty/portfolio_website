@@ -20,6 +20,7 @@
     grid-template-columns: 30px auto 30px;
     grid-template-rows: 30px auto 30px;
     width: 100%;
+    height: fit-content;
     padding: 0% 10% 0% 10%;
 }
 
@@ -49,5 +50,6 @@
 
 #two-edge-slot {
     grid-area: 2 / 2;
+    margin-bottom: -20px;
 }
 </style>

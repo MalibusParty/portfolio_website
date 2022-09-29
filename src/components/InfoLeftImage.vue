@@ -1,7 +1,7 @@
 <template>
-    <div class="info-right-container">
-        <div class="info-right-text"><slot></slot></div>
-        <div class="info-right-img"><slot name="image"></slot></div>
+    <div class="info-left-container">
+        <div class="info-left-img"><slot name="image"></slot></div>
+        <div class="info-left-text"><slot></slot></div>
     </div>
 </template>
 
@@ -10,7 +10,7 @@
 </script>
 
 <style scoped>
-.info-right-container {
+.info-left-container {
     display: flex;
     flex-direction: row;
     height: 90vh;
@@ -19,17 +19,18 @@
     padding: 2vh 2vw;
 }
 
-.info-right-text {
+.info-left-text {
     width: 35%;
     height: 100%;
     display: grid;
     place-content: center;
-    padding-right: 2%;
+    padding-left: 2%;
 }
 
-.info-right-img {
+.info-left-img {
     height: 100%;
     width: 60%;
     margin-left: 2%;
+    margin-right: 2%;
 }
 </style>

@@ -22,6 +22,7 @@
     grid-template-columns: 30vw auto 30vw;
     grid-template-rows: 24% 38% 38%;
     padding: 2vh 2vw;
+    margin-bottom: 5vh;
 }
 
 .info-middle-tech {
@@ -54,9 +55,6 @@
 
 .info-middle-image {
     grid-area: 2 / 2 / 4 / 2;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
     place-self: center;
     height: 100%;
 }

@@ -30,6 +30,7 @@ onMounted(() => {
     margin-left: 5%;
     width: 95vw;
     height: 100vh;
+    margin-bottom: 5vh;
 }
 
 .info-landing-page-left-item {

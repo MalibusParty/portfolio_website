@@ -37,7 +37,7 @@
                 </HeaderLineListComponent>
             </template>
             <template #default>
-                <img id="info-middle-img-loader" src="@/assets/SPAsS/Loader.png">
+                <img class="container-image" src="@/assets/SPAsS/Loader.png">
             </template>
             <template #tasks>
                 <HeaderLineListComponent>
@@ -64,6 +64,33 @@
                 </HeaderLineListComponent>
             </template>
         </InfoMiddleImage>
+        <InfoRightImage>
+            <template #image>
+                <img class="container-image" src="@/assets/SPAsS/programmansicht.png">
+            </template>
+            <template #default>
+                <HeaderTextQuadComponent>
+                    <template #headline>Headline 1</template>
+                    <template #default>
+                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                    </template>
+                </HeaderTextQuadComponent>
+            </template>
+        </InfoRightImage>
+        <InfoLeftImage>
+            <template #default>
+                <HeaderTextQuadComponent>
+                    <template #headline>Headline 2</template>
+                    <template #default>
+                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                    </template>
+                </HeaderTextQuadComponent>
+            </template>
+            <template #image>
+                <img class="container-image" src="@/assets/SPAsS/modulauswahl.png">
+            </template>
+        </InfoLeftImage>
+        <ImpressumContainer/>
     </div>
 </template>
 
@@ -77,6 +104,10 @@ import GithubTextBtn from '../components/GithubTextBtn.vue';
 import InfoMiddleImage from '../components/InfoMiddleImage.vue';
 import { onMounted } from 'vue';
 import HeaderLineListComponent from '../components/HeaderLineListComponent.vue';
+import InfoRightImage from '../components/InfoRightImage.vue';
+import HeaderTextQuadComponent from '../components/HeaderTextQuadComponent.vue';
+import InfoLeftImage from '../components/InfoLeftImage.vue';
+import ImpressumContainer from '../components/ImpressumContainer.vue';
 
 const { pageState, scrollOn, scrollOff } = usePage();
 
@@ -94,8 +125,8 @@ function linkFromOne() {
 
 <style scoped>
 
-#info-middle-img-loader {
-    object-fit: fill;
+.container-image {
+    object-fit: contain;
     height: 100%;
     max-width: 100%;
 }

@@ -85,6 +85,13 @@ body {
     height: 100vh;
 }
 
+.info-page-content {
+    top: 0;
+    left: 0;
+    margin: 0;
+    background-image: linear-gradient(165deg, #191970, #000000);
+}
+
 /* List Marker color */
 ul {
     list-style: none;
