@@ -17,20 +17,19 @@
 .info-middle-page-container {
     display: grid;
     height: 90vh;
+    min-height: 900px;
     width: 100vw;
     grid-template-columns: 30vw auto 30vw;
-    grid-template-rows: 20vh 33vh 33vh;
+    grid-template-rows: 24% 38% 38%;
     padding: 2vh 2vw;
 }
 
 .info-middle-tech {
-    background-color: red;
     grid-column: 1 / 2;
     grid-row: 2 / 3;
 }
 
 .info-middle-goals {
-    background-color: blue;
     grid-column: 1 / 2;
     grid-row: 3 / 4;
 }
@@ -54,7 +53,6 @@
 }
 
 .info-middle-image {
-    background-color: yellow;
     grid-area: 2 / 2 / 4 / 2;
     background-repeat: no-repeat;
     background-position: center;
@@ -64,13 +62,11 @@
 }
 
 .info-middle-tasks {
-    background-color: violet;
     grid-column: 3 / 4;
     grid-row: 2 / 3;
 }
 
 .info-middle-challenges {
-    background-color: orangered;
     grid-column: 3 / 4;
     grid-row: 3 / 4;
 }

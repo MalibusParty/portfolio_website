@@ -85,6 +85,22 @@ body {
     height: 100vh;
 }
 
+/* List Marker color */
+ul {
+    list-style: none;
+}
+
+ul li::before {
+    content: "\2022";
+    color: #FF7A50;
+    font-weight: bold;
+    font-size: 22pt;
+    line-height: 14pt;
+    display: inline-block;
+    width: 0.8em;
+    margin-left: -1.3em;
+}
+
 /* Route Transitions */
 .scrollTransDown-enter-from {
     opacity: 0;
