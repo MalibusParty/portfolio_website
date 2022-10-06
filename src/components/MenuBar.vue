@@ -2,12 +2,13 @@
     <div id="menu-flex-container">
         <div id="logo-flex-item"></div>
         <div id="github-flex-item"></div>
-        <div id="menu-flex-item"></div>
+        <div id="menu-flex-item"><NavigationMenuButton></NavigationMenuButton></div>
     </div>
 </template>
 
 
 <script setup lang="ts">
+import NavigationMenuButton from "./NavigationMenuButton.vue";
 
 </script>
 
@@ -42,11 +43,7 @@
 }
 
 #menu-flex-item {
-    background-image: url('@/assets/burger_btn_placeholder.png');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
     width: 4%;
-    margin: 10px 5px 10px 0px;
+    margin-right: 5%;
 }
 </style>
