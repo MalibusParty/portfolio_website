@@ -1,6 +1,6 @@
 <template>
 
-    <div id="duo-flex">
+    <div class="duo-flex">
         <div id="grid-container">
             <div id="name-tag"><TwoEdgeContainer>FELIX<br>RUF</TwoEdgeContainer></div>
             <div id="pixelGrid">
@@ -84,11 +84,12 @@ onMounted(() => {
     align-self: flex-end;
     margin-left: 5vw;
     z-index: -1;
+    overflow: hidden;
 }
 
-#duo-flex {
+.duo-flex {
     display: flex;
     height: 100vh;
-    overflow: hidden;
+    flex-direction: row;
 }
 </style>

@@ -5,6 +5,7 @@
             <div id="middle-nav-line"></div>
             <div id="lower-nav-line"></div>
         </div>
+        <div id="nav-click-plane" v-if="pageState.menuOpen"></div>
     </div>
 </template>
 
@@ -18,23 +19,24 @@ function openMenu() {
     const middleLine = document.getElementById('middle-nav-line');
     const upperLine = document.getElementById('upper-nav-line');
     const lowerLine = document.getElementById('lower-nav-line');
-    console.log('menu fnct called');
+    console.log('working');
     if(menu != null && middleLine != null && upperLine != null && lowerLine != null) {
         if(menu.classList.contains('animate')) {
             menu.classList.remove('animate');
             middleLine.classList.remove('animate');
             upperLine.classList.remove('animate');
             lowerLine.classList.remove('animate');
-            console.log('animate removed');
+            pageState.menuOpen = false;
         } else {
             menu.classList.add('animate');
             middleLine.classList.add('animate');
             upperLine.classList.add('animate');
             lowerLine.classList.add('animate');
-            console.log('animate added');
+            pageState.menuOpen = true;
         }
     }
 }
+
 
 </script>
 
@@ -50,6 +52,15 @@ function openMenu() {
 /* #nav-btn-lines {
     background-color: black;
 } */
+
+#nav-click-plane {
+    position: fixed;
+    width: calc(100vw - 450px);
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    top: 85px;
+    left: 0;
+}
 
 #upper-nav-line {
     background-color: white;

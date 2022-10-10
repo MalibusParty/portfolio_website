@@ -68,8 +68,9 @@ body {
 
 #scroll-stuff {
     position: absolute;
-    bottom: 130px;
+    bottom: 131px;
     left: -70px;
+    
 }
 
 #page-indicator {
