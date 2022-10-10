@@ -10,6 +10,8 @@
 
 
 <script setup lang="ts">
+import { usePage } from '@/services/usePage';
+const { pageState } = usePage();
 
 function openMenu() {
     const menu = document.getElementById('nav-btn-container');

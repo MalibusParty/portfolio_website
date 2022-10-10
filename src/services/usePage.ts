@@ -9,7 +9,8 @@ interface IPageState {
     transitionBehaviour: string,
     currentPage: number,
     currentRoute: string,
-    pageCount: number
+    pageCount: number,
+    menuOpen: boolean
 }
 
 const pageState = reactive<IPageState>({
@@ -18,7 +19,8 @@ const pageState = reactive<IPageState>({
     transitionBehaviour: 'scrollTransDown',
     currentPage: getCurrentPage(),
     currentRoute: '',
-    pageCount: 3
+    pageCount: 3,
+    menuOpen: false
 })
 
 pageState.currentPage = getCurrentPage();

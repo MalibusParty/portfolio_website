@@ -13,7 +13,7 @@
                 <NudgedButton nudged-btn-text="Details"></NudgedButton>
             </div>
         </div>
-        <div class="page-right-side" @click="linkToOne">
+        <div class="page-right-side" @click="linkToOne()">
             <PicAndNumberContainer :img-path="ProjectOnePic"/>
         </div>
     </div>

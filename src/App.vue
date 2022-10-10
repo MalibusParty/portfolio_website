@@ -6,6 +6,7 @@ import MenuBar from "./components/MenuBar.vue";
 import BackFromInfoButton from '@/components/BackFromInfoButton.vue';
 import ScrollDownInfo from './components/ScrollDownInfo.vue';
 import { onMounted } from "vue";
+import NavigationMenu from "./components/NavigationMenu.vue";
 
 const { pageState, wheelListener, getCurrentPage, getPageLink } = usePage();
 
@@ -22,6 +23,9 @@ onMounted(() => {
     <div class="main">
         <div id="menu-bar">
             <MenuBar></MenuBar>
+        </div>
+        <div id="navigation-menu-box" v-if="pageState.menuOpen">
+            <NavigationMenu></NavigationMenu>
         </div>
         <div id="scroll-stuff" v-if="pageState.currentPage === 0 || !pageState.scroll">
             <ScrollDownInfo/>
@@ -59,7 +63,7 @@ body {
     top: 0;
     width: 100%;
     position: fixed;
-    z-index: 10;
+    z-index: 11;
 }
 
 #scroll-stuff {
