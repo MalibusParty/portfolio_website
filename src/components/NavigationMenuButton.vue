@@ -5,7 +5,9 @@
             <div id="middle-nav-line"></div>
             <div id="lower-nav-line"></div>
         </div>
-        <div id="nav-click-plane" v-if="pageState.menuOpen"></div>
+        <Transition name="open-click-plane">
+            <div id="nav-click-plane" v-if="pageState.menuOpen"></div>
+        </Transition>
     </div>
 </template>
 
@@ -104,5 +106,13 @@ function openMenu() {
 #lower-nav-line.animate {
     transform: rotate(-37deg);
     
+}
+
+.open-click-plane-enter-from {
+    opacity: 0;
+}
+
+.open-click-plane-enter-active {
+    transition: opacity 0.5s ease-in;
 }
 </style>

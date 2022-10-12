@@ -24,9 +24,11 @@ onMounted(() => {
         <div id="menu-bar">
             <MenuBar></MenuBar>
         </div>
-        <div id="navigation-menu-box" v-if="pageState.menuOpen">
-            <NavigationMenu></NavigationMenu>
-        </div>
+        <Transition name="menu-transition">
+            <div id="navigation-menu-box" v-if="pageState.menuOpen">
+                <NavigationMenu></NavigationMenu>
+            </div>
+        </Transition>
         <div id="scroll-stuff" v-if="pageState.currentPage === 0 || !pageState.scroll">
             <ScrollDownInfo/>
         </div>
@@ -113,6 +115,19 @@ ul li::before {
     margin-left: -1.3em;
 }
 
+/* Menu transition */
+
+
+.menu-transition-enter-from,
+.menu-transition-leave-to {
+    transform: translateX(450px);
+}
+
+.menu-transition-enter-active,
+.menu-transition-leave-active {
+    transition: all 0.3s ease-in;
+}
+
 /* Route Transitions */
 .scrollTransDown-enter-from {
     opacity: 0;
@@ -184,5 +199,20 @@ ul li::before {
 
 .clickTransOut-leave-active {
     transition: all 0.3s ease-out;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #191970;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 10px;
 }
 </style>

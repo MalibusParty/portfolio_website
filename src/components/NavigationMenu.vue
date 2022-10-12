@@ -61,4 +61,5 @@ import NavigationMenuItem from "./NavigationMenuItem.vue";
     padding: 15px 40px;
 }
 
+
 </style>
