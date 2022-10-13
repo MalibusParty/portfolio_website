@@ -8,9 +8,9 @@ import ScrollDownInfo from './components/ScrollDownInfo.vue';
 import { onMounted } from "vue";
 import NavigationMenu from "./components/NavigationMenu.vue";
 
-const { pageState, wheelListener, getCurrentPage, getPageLink } = usePage();
+const { pageState, wheelListener, getCurrentPage, getPageLink, scrollOn } = usePage();
 
-window.addEventListener('wheel', wheelListener);
+scrollOn();
 
 onMounted(() => {
     pageState.currentPage = getCurrentPage();
