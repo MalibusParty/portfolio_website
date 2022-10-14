@@ -24,7 +24,7 @@
                 Ebay-Clone
             </template>
         </NavigationMenuItem>
-        <NavigationMenuItem menu-item-link="/">
+        <NavigationMenuItem menu-item-link="/impressum">
             <template #default>
                 Impressum
             </template>

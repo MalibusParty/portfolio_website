@@ -19,7 +19,7 @@ const pageState = reactive<IPageState>({
     transitionBehaviour: 'scrollTransDown',
     currentPage: getCurrentPage(),
     currentRoute: '',
-    pageCount: 3,
+    pageCount: 4,
     menuOpen: false
 })
 
@@ -109,6 +109,8 @@ function getCurrentPage(): number {
         return 1;
     } else if(url.includes('projecttwo')) {
         return 2;
+    } else if(url.includes('impressum')) {
+        return 3;
     } else {
         return 0;
     }
@@ -122,6 +124,8 @@ function getPageLink() {
             return '/projectone';
         case 2:
             return '/projecttwo';
+        case 3:
+            return '/impressum';
         default:
             return '/';
     }

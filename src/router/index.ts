@@ -4,6 +4,7 @@ import ProjectOne from '@/views/ProjectOne.vue';
 import ProjectTwo from '@/views/ProjectTwo.vue';
 import ProjectOneInfo from '@/views/ProjectOneInfo.vue';
 import ProjectTwoInfo from '@/views/ProjectTwoInfo.vue';
+import ImpressumView from '@/views/ImpressumView.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +28,10 @@ const router = createRouter({
         path: '/projecttwo/info',
         name: 'projtwoinfo',
         component: ProjectTwoInfo
+    }, {
+        path: '/impressum',
+        name: 'impressum',
+        component: ImpressumView
     }]
 })
 

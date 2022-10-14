@@ -36,7 +36,7 @@ onMounted(() => {
             <BackFromInfoButton/>
         </div>
         <div id="page-indicator" v-if="pageState.scroll">
-            <PageIndicator :page-count="3" :current-page="pageState.currentPage" />
+            <PageIndicator :page-count="4" :current-page="pageState.currentPage" />
         </div>
         <div id="router-box">
             <RouterView v-slot="{ Component }">
