@@ -26,6 +26,7 @@ const pageState = reactive<IPageState>({
 pageState.currentPage = getCurrentPage();
 
 let touchStartPos = 0;
+let touchThrottle = false;
 
 function wheelListener(event: WheelEvent) {
     if(Math.abs(event.deltaY) < 30) return;
@@ -51,23 +52,42 @@ function scrollListener(event: TouchEvent) {
     if(!pageState.throttled) {
         pageState.throttled = true;
 
-        const currentPagePos = event.changedTouches[0].screenY | 0;
-        if (touchStartPos === currentPagePos) return;
+        const touchEndPos = event.changedTouches[0].screenY | 0;
+        if (touchStartPos === touchEndPos) return;
     
-        if(touchStartPos - currentPagePos < 0) {
+        if(touchStartPos - touchEndPos < 0) {
             pageState.currentPage -= (pageState.currentPage === 0) ? 0 : 1;
             pageState.transitionBehaviour = 'scrollTransUp';
         } else {
             pageState.currentPage += (pageState.currentPage < pageState.pageCount-1) ? 1 : 0;
             pageState.transitionBehaviour = 'scrollTransDown';
         }
-        touchStartPos = currentPagePos;
         router.push(getPageLink());
 
         setTimeout(() => {
             pageState.throttled = false;
         }, 500);
     }
+}
+
+function writeTouchStart(event: TouchEvent) {
+    if(!touchThrottle) {
+        touchThrottle = true;
+        touchStartPos = event.changedTouches[0].screenY;
+        setTimeout(() => {
+            touchThrottle = false;
+        }, 500);
+    }
+}
+
+function addScrollLstnr() {
+    window.addEventListener('touchstart', writeTouchStart);
+    window.addEventListener('touchend', scrollListener);
+}
+
+function removeScrollLstnr() {
+    window.removeEventListener('touchstart', writeTouchStart);
+    window.removeEventListener('touchend', scrollListener);
 }
 
 function getCurrentPage(): number {
@@ -117,11 +137,11 @@ function getGithubLink(): string {
 
 function switchScroll() {
     if(pageState.scroll) {
-        // window.addEventListener('wheel', wheelListener);
-        window.addEventListener('touchmove', scrollListener);
+        window.addEventListener('wheel', wheelListener);
+        addScrollLstnr();
     } else {
-        // window.removeEventListener('wheel', wheelListener);
-        window.removeEventListener('touchmove', scrollListener);
+        window.removeEventListener('wheel', wheelListener);
+        removeScrollLstnr();
     }
 }
 
@@ -129,8 +149,8 @@ function scrollOn() {
     if(!pageState.scroll) {
         pageState.scroll = true;
         pageState.transitionBehaviour = 'scrollTransDown';
-        // window.addEventListener('wheel', wheelListener);
-        window.addEventListener('touchmove', scrollListener);
+        window.addEventListener('wheel', wheelListener);
+        addScrollLstnr();
     }
 }
 
@@ -138,9 +158,8 @@ function scrollOff() {
     if(pageState.scroll) {
         pageState.scroll = false;
         pageState.transitionBehaviour = 'clickTransIn';
-        // window.removeEventListener('wheel', wheelListener);
-        window.removeEventListener('touchmove', scrollListener);
-
+        window.removeEventListener('wheel', wheelListener);
+        removeScrollLstnr();
     }
 }
 
