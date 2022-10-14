@@ -49,16 +49,17 @@ function wheelListener(event: WheelEvent) {
 }
 
 function scrollListener(event: TouchEvent) {
+    const touchDistanceDifferenceToDetect = 50;
     if(!pageState.throttled) {
         pageState.throttled = true;
 
         const touchEndPos = event.changedTouches[0].screenY | 0;
         if (touchStartPos === touchEndPos) return;
-    
-        if(touchStartPos - touchEndPos < 0) {
+        
+        if(touchStartPos - touchEndPos < -touchDistanceDifferenceToDetect) {
             pageState.currentPage -= (pageState.currentPage === 0) ? 0 : 1;
             pageState.transitionBehaviour = 'scrollTransUp';
-        } else {
+        } else if(touchStartPos - touchEndPos > touchDistanceDifferenceToDetect){
             pageState.currentPage += (pageState.currentPage < pageState.pageCount-1) ? 1 : 0;
             pageState.transitionBehaviour = 'scrollTransDown';
         }
@@ -166,7 +167,7 @@ function scrollOff() {
 export function usePage() {
     return {
         pageState,
-        wheelListener,
+        //wheelListener,
         getCurrentPage,
         getPageLink,
         getGithubLink,
