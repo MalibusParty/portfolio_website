@@ -49,8 +49,8 @@ const pageNumber = getCurrentPage();
         object-fit: cover;
         max-width: 100%;
         max-height: 100%;
-        /* margin: 7% 10% 15% 0%; */
-        /* height: 100%; */
+        margin: 7% 10% 15% 0%;
+        height: 100%;
     }
     
     .pic-and-number-container {

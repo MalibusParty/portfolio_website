@@ -156,6 +156,7 @@ function scrollOn() {
         pageState.transitionBehaviour = 'scrollTransDown';
         window.addEventListener('wheel', wheelListener);
         addScrollLstnr();
+        document.body.classList.add('fixAddBar');
     }
 }
 
@@ -165,6 +166,7 @@ function scrollOff() {
         pageState.transitionBehaviour = 'clickTransIn';
         window.removeEventListener('wheel', wheelListener);
         removeScrollLstnr();
+        document.body.classList.remove('fixAddBar');
     }
 }
 

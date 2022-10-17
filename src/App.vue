@@ -61,6 +61,17 @@ body {
     overflow-x: hidden;
 }
 
+.fixAddBar {
+    position: fixed;
+}
+
+.main {
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-image: linear-gradient(165deg, #191970, #000000);
+    width: 100vw;
+}
 
 #menu-bar {
     top: 0;
@@ -126,7 +137,7 @@ body {
     }
 
     #router-box {
-        height: 100vh;
+        height: 100%;
     }
 
     .info-page-content {

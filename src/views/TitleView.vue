@@ -77,7 +77,7 @@ const windowWidth = ref(window.innerWidth);
     #portrait-container {
         align-self: flex-end;
         margin-left: 5vw;
-        z-index: -1;
+        /* z-index: -1; */
         overflow: hidden;
     }
 
@@ -126,7 +126,7 @@ const windowWidth = ref(window.innerWidth);
 
     #portrait-container {
         align-self: flex-end;
-        z-index: -1;
+        /* z-index: -1; */
     }
 
     .duo-flex {
