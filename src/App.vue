@@ -61,6 +61,7 @@ body {
     overflow-x: hidden;
 }
 
+
 #menu-bar {
     top: 0;
     width: 100%;
@@ -68,35 +69,72 @@ body {
     z-index: 11;
 }
 
-#scroll-stuff {
-    position: absolute;
-    bottom: 131px;
-    left: -70px;
-    
+@media (min-width: 491px) {
+
+    #scroll-stuff {
+        position: absolute;
+        bottom: 96px;
+        left: -70px;
+        
+    }
+
+    #page-indicator {
+        position: fixed;
+
+        top: 45vh;
+        left: 1.5vw;
+    }
+
+    #back-from-info-btn {
+        position: fixed;
+        margin-top: calc(3vh + 85px);
+        margin-left: 2vw;
+    }
+
+    #router-box {
+        height: 100vh;
+    }
+
+    .info-page-content {
+        top: 0;
+        left: 0;
+        margin: 0;
+        background-image: linear-gradient(165deg, #191970, #000000);
+    }
 }
 
-#page-indicator {
-    position: fixed;
+@media (max-width: 490px) and (orientation: portrait){
 
-    top: 45vh;
-    left: 1.5vw;
-}
+    #scroll-stuff {
+        position: absolute;
+        bottom: 96px;
+        left: -85px;
+        
+    }
 
-#back-from-info-btn {
-    position: fixed;
-    margin-top: calc(3vh + 85px);
-    margin-left: 2vw;
-}
+    #page-indicator {
+        position: fixed;
+        transform: rotate(-90deg);
+        bottom: 0;
+        left: 40vw;
+    }
 
-#router-box {
-    height: 100vh;
-}
+    #back-from-info-btn {
+        position: fixed;
+        margin-top: calc(3vh + 85px);
+        margin-left: 2vw;
+    }
 
-.info-page-content {
-    top: 0;
-    left: 0;
-    margin: 0;
-    background-image: linear-gradient(165deg, #191970, #000000);
+    #router-box {
+        height: 100vh;
+    }
+
+    .info-page-content {
+        top: 0;
+        left: 0;
+        margin: 0;
+        background-image: linear-gradient(165deg, #191970, #000000);
+    }
 }
 
 /* List Marker color */

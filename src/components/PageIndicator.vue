@@ -120,10 +120,10 @@ function changeIndicator(currentPageIndex: number) {
 
 .circleItem {
     border-radius: 50%;
-    height: 10px;
-    width: 10px;
-    margin-left: 10px;
-    margin-top: 20px;
+    height: 5px;
+    width: 5px;
+    margin-left: 8px;
+    margin-top: 8px;
 }
 
 .blendInAnimation {

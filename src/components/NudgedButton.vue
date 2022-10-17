@@ -21,24 +21,51 @@ function linkToInfoPage() {
 
 <style scoped>
 
-#nudged-border-box {
-    color: white;
-    border: 5px solid #FF7A50;
-    text-align: center;
-    width: fit-content;
-    padding: 0px 40px 0px 40px;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    font-size: 18pt;
-    line-height: 6pt;
-    transform: skew(-30deg);
+@media(min-width: 491px) {
+    #nudged-border-box {
+        color: white;
+        border: 5px solid #FF7A50;
+        text-align: center;
+        width: fit-content;
+        padding: 0px 40px 0px 40px;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        font-size: 18pt;
+        line-height: 6pt;
+        transform: skew(-30deg);
+    }
+    
+    #nudged-border-box:hover {
+        cursor: pointer;
+        border: 5px dotted #FF7A50;
+    }
+    
+    #nudged-border-box p {
+        transform: skew(30deg);
+    }
 }
 
-#nudged-border-box:hover {
-    cursor: pointer;
-    border: 5px dotted #FF7A50;
+@media(max-width: 490px) {
+    #nudged-border-box {
+        color: white;
+        border: 5px solid #FF7A50;
+        text-align: center;
+        width: fit-content;
+        padding: 0px 6vw 0px 6vw;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        font-size: 4.5vw;
+        line-height: 6pt;
+        transform: skew(-30deg);
+    }
+    
+    #nudged-border-box:hover {
+        cursor: pointer;
+        border: 5px dotted #FF7A50;
+    }
+    
+    #nudged-border-box p {
+        transform: skew(30deg);
+    }
 }
 
-#nudged-border-box p {
-    transform: skew(30deg);
-}
+
 </style>

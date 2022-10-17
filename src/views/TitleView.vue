@@ -8,7 +8,7 @@
             </div>
             <div id="intro-text">I currently study Media Computer Science at the RheinMain University of Applied Sciences</div>
         </div>
-        <div id="portrait-container">
+        <div id="portrait-container" v-if="windowWidth > 491">
             <ImgConverter :x-dimension="100" :img-path="portrait" :color="'#ffffff'"/>
         </div>
     </div>
@@ -18,7 +18,7 @@
 
 <script setup lang="ts">
 import PixelGrid from '@/components/PixelGrid.vue';
-import { onMounted } from 'vue';
+import { onMounted, ref } from 'vue';
 import { usePage } from '../services/usePage';
 import ImgConverter from '@/components/imgConverter.vue';
 import portrait from '@/assets/portrait_small.png';
@@ -30,66 +30,110 @@ onMounted(() => {
     pageState.currentPage = getCurrentPage();
     scrollOn();
 });
+
+const windowWidth = ref(window.innerWidth);
 </script>
 
 
 <style scoped>
 
-#grid-container {
-    display: flex;
-    width: 70%;
-    margin-left: 10vw;
-    margin-top: calc(5vh + 85px);
-    flex-direction: column;
+@media (min-width: 491px) {
+    #grid-container {
+        display: flex;
+        width: 70%;
+        margin-left: 10vw;
+        margin-top: calc(5vh + 85px);
+        flex-direction: column;
+    }
+
+    #name-tag {
+        font-family: 'Segoe UI', 'Arial', sans-serif;
+        font-size: 40pt;
+        font-weight: 700;
+        margin: 3vh 0vw;
+        line-height: 40pt;
+        color: white;
+        width: fit-content;
+    }
+
+    #intro-text {
+        font-family: 'Segoe UI', 'Arial', sans-serif;
+        font-size: 16pt;
+        font-weight: lighter;
+        font-style: oblique;
+        line-height: 1.3;
+        color: white;
+        padding-right: 20vw;
+        margin: 5vh 0vw 0vh 0vw;
+    }
+
+    #pixelGrid {
+        height: fit-content;
+        justify-self: center;
+        border-bottom: 5px solid #FF7A50;
+        padding-bottom: 30px;
+    }
+
+    #portrait-container {
+        align-self: flex-end;
+        margin-left: 5vw;
+        z-index: -1;
+        overflow: hidden;
+    }
+
+    .duo-flex {
+        display: flex;
+        height: 100vh;
+        flex-direction: row;
+    }
 }
 
-#personal_logo {
-    background-image: url('@/assets/Logo_black_no_background.png');
-    background-repeat: no-repeat;
-    width: 25vh;
-    height: 10vh;
-    background-size: cover;
-    margin-left: 1.5vw;
-}
+@media (max-width: 490px) {
+    #grid-container {
+        display: flex;
+        width: 100%;
+        margin-top: calc(1vh + 85px);
+        flex-direction: column;
+    }
 
-#name-tag {
-    font-family: 'Segoe UI', 'Arial', sans-serif;
-    font-size: 50pt;
-    font-weight: 700;
-    margin: 3vh 0vw;
-    line-height: 1;
-    color: white;
-    width: fit-content;
-}
+    #name-tag {
+        font-family: 'Segoe UI', 'Arial', sans-serif;
+        font-size: 32pt;
+        font-weight: 700;
+        margin: 3vh 0vw;
+        line-height: 32pt;
+        color: white;
+        width: fit-content;
+    }
 
-#intro-text {
-    font-family: 'Segoe UI', 'Arial', sans-serif;
-    font-size: 18pt;
-    font-weight: lighter;
-    font-style: oblique;
-    line-height: 1.3;
-    color: white;
-    padding-right: 20vw;
-    margin: 5vh 0vw 0vh 0vw;
-}
+    #intro-text {
+        font-family: 'Segoe UI', 'Arial', sans-serif;
+        font-size: 16pt;
+        font-weight: lighter;
+        font-style: oblique;
+        line-height: 1.3;
+        color: white;
+        margin: 3vh 0vw 0vh 0vw;
+        padding-right: 10vw;
+    }
 
-#pixelGrid {
-    height: fit-content;
-    justify-self: center;
-    border-bottom: 5px solid #FF7A50;
-    height: 25%;
-}
+    #pixelGrid {
+        justify-self: center;
+        border-bottom: 5px solid #FF7A50;
+        padding-bottom: 30px;
+        margin-right: 10vw;
+    }
 
-#portrait-container {
-    align-self: flex-end;
-    margin-left: 5vw;
-    z-index: -1;
-    overflow: hidden;
-}
+    #portrait-container {
+        align-self: flex-end;
+        z-index: -1;
+    }
 
-.duo-flex {
-    display: flex;
-    height: 100vh;
-    flex-direction: row;
+    .duo-flex {
+        display: flex;
+        width: 88vw;
+        flex-direction: column;
+        margin-left: 12vw;
+    }
 }
 </style>

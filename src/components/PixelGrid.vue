@@ -36,11 +36,11 @@ nextTick(() =>{
 
 function createGrid() {
     pixelArr = Array.from(document.querySelectorAll('.pixel'));
-    let finalArr = []
+    const finalArr = []
     let arrCounter = 0;
     for(let i = 1; i <= props.xDimension; i++) {
         for(let j = 1; j <= props.yDimension; j++) {
-            let ele = pixelArr[arrCounter] as HTMLElement;
+            const ele = pixelArr[arrCounter] as HTMLElement;
             if(newImg[arrCounter++] === 1) {
                 ele.style.gridArea = `${j} / ${i} / span 1 / span 1`;
                 ele.style.backgroundColor = "white";
@@ -57,9 +57,9 @@ function createGrid() {
 }
 
 function getPositions() {
-    let posArr = [];
+    const posArr = [];
     for(let i = 0; i < pixelArr.length; i++) {
-        let position = pixelArr[i].getBoundingClientRect();
+        const position = pixelArr[i].getBoundingClientRect();
         const pos: number[] = [position.left, position.top];
         posArr.push(pos);
     }
@@ -68,7 +68,7 @@ function getPositions() {
 
 function update(event: MouseEvent) {
     for(let i = 0; i < pixelArr.length; i++) {
-        let ele = pixelArr[i] as HTMLElement;
+        const ele = pixelArr[i] as HTMLElement;
         const xDiff = Math.abs(posOfEle[i][0] - event.pageX);
         const yDiff = Math.abs(posOfEle[i][1] - event.pageY);
         const distance = Math.sqrt(xDiff * xDiff + yDiff * yDiff);
@@ -113,25 +113,51 @@ onUnmounted(() => {
 
 <style scoped>
 
-#pixGrid {
-    max-width: fit-content;
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    gap: 0.25vw;
-    grid-auto-rows: 0.1vw;
-    grid-auto-columns: 0.1vw;
+
+@media (min-width: 491px) {
+    #pixGrid {
+        max-width: fit-content;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        gap: 0.25vw;
+        grid-auto-rows: 0.1vw;
+        grid-auto-columns: 0.1vw;
+    }
+    
+    .pixel {
+        border-radius: 50%;
+    }
+    
+    #mousePos {
+        font-size: 18pt;
+        font-weight: bolder;
+        font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+        color: white;
+    }
 }
 
-.pixel {
-    border-radius: 50%;
-}
-
-#mousePos {
-    font-size: 18pt;
-    font-weight: bolder;
-    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
-    color: white;
+@media (max-width: 490px) {
+    #pixGrid {
+        max-width: fit-content;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        gap: 0.4vw;
+        grid-auto-rows: 0.3vw;
+        grid-auto-columns: 0.3vw;
+    }
+    
+    .pixel {
+        border-radius: 50%;
+    }
+    
+    #mousePos {
+        font-size: 18pt;
+        font-weight: bolder;
+        font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+        color: white;
+    }
 }
 
 </style>

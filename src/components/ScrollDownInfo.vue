@@ -20,8 +20,8 @@
 
 #scroll-down-text {
     font-family: 'Segoe UI', Arial, sans-serif;
-    font-size: 16pt;
-    line-height: 14pt;
+    font-size: 12pt;
+    line-height: 10pt;
     text-align: center;
     width: fit-content;
     color: white;
@@ -29,7 +29,7 @@
 
 #scroll-down-line {
     border-bottom: 3px solid white;
-    width: 140px;
+    width: 100px;
 }
 
 </style>

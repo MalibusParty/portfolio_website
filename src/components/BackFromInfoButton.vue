@@ -9,12 +9,12 @@
 import router from '@/router';
 import { usePage } from '@/services/usePage';
 
-const { pageState, scrollOff, getCurrentPage, getPageLink } = usePage();
+const { pageState, scrollOn, getCurrentPage, getPageLink } = usePage();
 
 
 
 function linkBackFromInfo() {
-    scrollOff();
+    scrollOn();
     pageState.transitionBehaviour = 'clickTransOut';
     router.push(getPageLink());
 }

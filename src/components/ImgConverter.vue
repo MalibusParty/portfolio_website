@@ -18,28 +18,29 @@ const props = defineProps<{
     color: string
 }>();
 
-const pixelCount = props.xDimension * props.xDimension;
+const pixelCount = checkForSmallScreen();
+const dimension = dimensionChecker();
 
 let pixelArr: Array<HTMLElement>;
-let newImg = new Image();
+const newImg = new Image();
 
 onMounted(() => {
     newImg.onload = () => {
-        const scaleFactor = props.xDimension / newImg.width;
+        const scaleFactor = dimension / newImg.width;
         const canvas: any = document.getElementById('myTestCanvas');
         const ctx = canvas.getContext('2d');
         canvas.width = newImg.width;
         canvas.height = newImg.height;
         ctx.drawImage(newImg, 0, 0);
-        let imgData: ImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const imgData: ImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
         const data: Uint8ClampedArray = imgData.data;
-        let pixArr = blackWhiteImg(data);
+        const pixArr = blackWhiteImg(data);
         createGrid(scaleImgDown(pixArr, canvas.width * scaleFactor, canvas.height * scaleFactor, canvas.width, canvas.height));
     }
 });
 
 function blackWhiteImg(imgData: Uint8ClampedArray) {
-    let outputArray: Array<number> = new Array(imgData.length / 4);
+    const outputArray: Array<number> = new Array(imgData.length / 4);
     const imgDataLen = imgData.length;
     let counter = 0;
     for(let i = 0; i < imgDataLen; i += 4) {
@@ -54,11 +55,11 @@ newImg.src = props.imgPath;
 
 function createGrid(imgData: number[]) {
     pixelArr = Array.from(document.querySelectorAll('.pixelP'));
-    let finalArr = [];
+    const finalArr = [];
     let arrCounter = 0;
-    for(let i = 1; i <= props.xDimension; i++) {
-        for(let j = 1; j <= props.xDimension; j++) {
-            let ele: HTMLElement = pixelArr[arrCounter];
+    for(let i = 1; i <= dimension; i++) {
+        for(let j = 1; j <= dimension; j++) {
+            const ele: HTMLElement = pixelArr[arrCounter];
             const widthFromColor = calcWidthFromColor(imgData[arrCounter], 9, 1);
             if(imgData[arrCounter++] > 0) {
                 ele.style.gridArea = `${j} / ${i} / span 1 / span 1`;
@@ -80,21 +81,40 @@ function calcWidthFromColor(color: number, maxWidth: number, minWidth: number) {
     return ((maxWidth * percentOfColRange) + minWidth) | 0;
 }
 
+function checkForSmallScreen() {
+    if(window.innerWidth < 490) {
+        return props.xDimension * props.xDimension / 2;
+    }
+    return props.xDimension * props.xDimension;
+}
+
+function dimensionChecker() {
+    if(window.innerWidth < 490) {
+        return props.xDimension / 2;
+    }
+    return props.xDimension;
+}
+
 </script>
 
 
 <style scoped>
-#pixelPic {
-    max-width: fit-content;
-    display: grid;
-    align-items: center;
-    justify-items: center;
-    gap: 0.25vw;
-    grid-auto-rows: 0.12vw;
-    grid-auto-columns: 0.12vw;
+
+@media (min-width: 491px) {
+    #pixelPic {
+        max-width: fit-content;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        gap: 0.25vw;
+        grid-auto-rows: 0.12vw;
+        grid-auto-columns: 0.12vw;
+    }
+    
+    .pixelP {
+        border-radius: 50%;
+    }
 }
 
-.pixelP {
-    border-radius: 50%;
-}
+
 </style>

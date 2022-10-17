@@ -45,40 +45,81 @@ function linkToOne() {
 
 <style scoped>
 
-.project-page {
 
-    height: 100%;
-    width: 90vw;
-    display: flex;
+@media (min-width: 491px) {
+    .project-page {
+    
+        height: 100%;
+        width: 90vw;
+        display: flex;
+    
+        margin-left: 10%;
+        padding-top: 85px;
+    
+        overflow: hidden;
+    }
+    
+    .page-right-side {
+        width: 60%;
+        font-size: 60pt;
+        cursor: pointer;
+    }
+    
+    .page-left-side {
+        width: 40%;
+        padding: 20vh 10vw 0 0vw;
+    }
+    
+    
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        padding-top: 10%;
+        padding-left: 15%;
+        padding-bottom: 5%;
+    }
+    
+    #ndgd-btn {
+        margin-top: 40px;
+        margin-left: 40px;
+    }
 
-    margin-left: 10%;
-    padding-top: 85px;
-
-    overflow: hidden;
 }
 
-.page-right-side {
-    width: 60%;
-    font-size: 60pt;
-    cursor: pointer;
-}
+@media (max-width: 490px) {
+    .project-page {
+    
+        height: 100%;
+        width: 95vw;
+        display: flex;
+        flex-direction: column;
 
-.page-left-side {
-    width: 40%;
-    padding: 20vh 10vw 0 0vw;
-}
+        margin-left: 5%;
+        padding-top: 85px;
 
+        overflow: hidden;
+    }
 
-img {
-    max-width: 100%;
-    max-height: 100%;
-    padding-top: 10%;
-    padding-left: 15%;
-    padding-bottom: 5%;
-}
+    .page-right-side {
+        width: 100%;
+        cursor: pointer;
+        padding-right: 5%;
+        height: 30vh;
+        order: 1;
+    }
 
-#ndgd-btn {
-    margin-top: 40px;
-    margin-left: 40px;
+    .page-left-side {
+        width: 100%;
+        padding: 3vh 10vw 0 0vw;
+        display: flex;
+        flex-direction: column;
+        order: 2;
+    }
+
+    #ndgd-btn {
+        margin-top: 15px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 </style>
