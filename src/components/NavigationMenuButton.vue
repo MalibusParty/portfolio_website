@@ -1,9 +1,9 @@
 <template>
-    <div id="nav-btn-container" @click="openMenu()">
+    <div id="nav-btn-container" @click="openMenu()" :class="{ animate: pageState.menuOpen }">
         <div id="nav-btn-lines">
-            <div id="upper-nav-line"></div>
-            <div id="middle-nav-line"></div>
-            <div id="lower-nav-line"></div>
+            <div id="upper-nav-line" :class="{ animate: pageState.menuOpen }"></div>
+            <div id="middle-nav-line" :class="{ animate: pageState.menuOpen }"></div>
+            <div id="lower-nav-line" :class="{ animate: pageState.menuOpen }"></div>
         </div>
         <Transition name="open-click-plane">
             <div id="nav-click-plane" v-if="pageState.menuOpen"></div>
@@ -17,26 +17,7 @@ import { usePage } from '@/services/usePage';
 const { pageState } = usePage();
 
 function openMenu() {
-    const menu = document.getElementById('nav-btn-container');
-    const middleLine = document.getElementById('middle-nav-line');
-    const upperLine = document.getElementById('upper-nav-line');
-    const lowerLine = document.getElementById('lower-nav-line');
-    console.log('working');
-    if(menu != null && middleLine != null && upperLine != null && lowerLine != null) {
-        if(menu.classList.contains('animate')) {
-            menu.classList.remove('animate');
-            middleLine.classList.remove('animate');
-            upperLine.classList.remove('animate');
-            lowerLine.classList.remove('animate');
-            pageState.menuOpen = false;
-        } else {
-            menu.classList.add('animate');
-            middleLine.classList.add('animate');
-            upperLine.classList.add('animate');
-            lowerLine.classList.add('animate');
-            pageState.menuOpen = true;
-        }
-    }
+    pageState.menuOpen = !pageState.menuOpen;
 }
 
 

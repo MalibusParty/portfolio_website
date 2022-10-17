@@ -12,6 +12,9 @@
 
 <script setup lang="ts">
 import router from '@/router';
+import { usePage } from '@/services/usePage';
+
+const { pageState } = usePage();
 
 
 const props = defineProps<{
@@ -20,6 +23,7 @@ const props = defineProps<{
 
 function linkToPage() {
     router.push(props.menuItemLink);
+    pageState.menuOpen = false;
 }
 
 </script>
