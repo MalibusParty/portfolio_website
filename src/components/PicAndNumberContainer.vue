@@ -49,8 +49,8 @@ const pageNumber = getCurrentPage();
         object-fit: cover;
         max-width: 100%;
         max-height: 100%;
-        margin: 7% 10% 15% 0%;
-        height: 100%;
+        /* margin: 7% 10% 15% 0%; */
+        /* height: 100%; */
     }
     
     .pic-and-number-container {
@@ -67,7 +67,7 @@ const pageNumber = getCurrentPage();
         color: #FF7A50;
         font-size: 500pt;
         line-height: 0;
-        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-family: Georgia, 'Times New Roman', Times, serif;
         filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.35));
     }
 }
@@ -100,11 +100,11 @@ const pageNumber = getCurrentPage();
         width: 15%;
         height: 50%;
         top: calc(100% - 100px);
-        left: calc(100% - 100px);
+        left: calc(100% - 110px);
         color: #FF7A50;
         font-size: 200pt;
         line-height: 0;
-        font-family:Georgia, 'Times New Roman', Times, serif;
+        font-family: Georgia, 'Times New Roman', Times, serif;
         filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.35));
     }
 }

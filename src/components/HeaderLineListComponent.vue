@@ -16,28 +16,54 @@ import QuadEdgeContainer from "./QuadEdgeContainer.vue";
 
 
 <style scoped>
+
 #header-line-list-container {
     display: flex;
     flex-direction: column;
     font-family: 'Segoe UI', 'Arial', 'sans-serif';
 }
 
-#header-list-headline-item {
-    color: white;
-    font-weight: bold;
-    font-size: 22pt;
-    line-height: 20pt;
-    margin-top: -5px;
+@media(min-width: 491px) {
+    
+    #header-list-headline-item {
+        color: white;
+        font-weight: bold;
+        font-size: 22pt;
+        line-height: 20pt;
+        margin-top: -5px;
+    }
+    
+    #header-list-list-item {
+        color: white;
+        font-size: 20pt;
+    }
+    
+    #header-list-line-item {
+        border-top: 5px solid #FF7A50;
+        margin-right: 25%;
+        margin-top: 20px;
+    }
 }
 
-#header-list-list-item {
-    color: white;
-    font-size: 20pt;
-}
+@media (max-width: 490px) {
 
-#header-list-line-item {
-    border-top: 5px solid #FF7A50;
-    margin-right: 25%;
-    margin-top: 20px;
+    #header-list-headline-item {
+        color: white;
+        font-weight: bold;
+        font-size: 18pt;
+        line-height: 18pt;
+        margin-top: -5px;
+    }
+    
+    #header-list-list-item {
+        color: white;
+        font-size: 12pt;
+    }
+    
+    #header-list-line-item {
+        border-top: 5px solid #FF7A50;
+        margin-right: 25%;
+        margin-top: 20px;
+    }
 }
 </style>

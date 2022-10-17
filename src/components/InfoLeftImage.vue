@@ -10,27 +10,55 @@
 </script>
 
 <style scoped>
-.info-left-container {
-    display: flex;
-    flex-direction: row;
-    height: 90vh;
-    min-height: 900px;
-    width: 100vw;
-    padding: 2vh 2vw;
+
+@media (min-width: 491px) {
+    .info-left-container {
+        display: flex;
+        flex-direction: row;
+        height: 90vh;
+        min-height: 900px;
+        width: 100vw;
+        padding: 2vh 2vw;
+    }
+
+    .info-left-text {
+        width: 35%;
+        height: 100%;
+        display: grid;
+        place-content: center;
+        padding-left: 2%;
+    }
+
+    .info-left-img {
+        height: 100%;
+        width: 60%;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
 }
 
-.info-left-text {
-    width: 35%;
-    height: 100%;
-    display: grid;
-    place-content: center;
-    padding-left: 2%;
-}
+@media (max-width: 490px) {
+    .info-left-container {
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+    }
 
-.info-left-img {
-    height: 100%;
-    width: 60%;
-    margin-left: 2%;
-    margin-right: 2%;
+    .info-left-text {
+        width: 90%;
+        display: grid;
+        place-content: center;
+        order: 2;
+        place-self: center;
+        margin-top: 3vh;
+    }
+
+    .info-left-img {
+        height: 100%;
+        maX-width: 100%;
+        order: 1;
+        place-self: center;
+        margin-top: 5vh;
+    }
 }
 </style>

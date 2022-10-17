@@ -26,14 +26,27 @@ import HeaderLineListComponent from '../components/HeaderLineListComponent.vue';
 <style scoped>
 .impressum-container {
     border-top: solid 5px #FF7A50;
-    /* padding: 5% 30%; */
     display: grid;
     place-content: center;
 }
 
-.impressum-item {
-    padding-top: 30%;
-    padding-bottom: 15%;
-    width: 600px;
+@media (min-width: 491px) {
+    .impressum-item {
+        padding-top: calc(85px + 5vh);
+        padding-bottom: 10%;
+        width: 600px;
+    }
+}
+
+@media (max-width: 490px) {
+
+    .impressum-container {
+        margin-top: 5vh;
+    }
+    .impressum-item {
+        padding-top: 5vh;
+        padding-bottom: 7vh;
+        width: 90vw;
+    }
 }
 </style>

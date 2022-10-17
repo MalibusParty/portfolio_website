@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="impressum-box">
         <ImpressumContainer/>
     </div>
 </template>
@@ -18,5 +18,8 @@ onMounted(() => {
 </script>
 
 <style scoped>
-
+#impressum-box {
+    margin: auto;
+    padding-top: calc(5vh + 85px);
+}
 </style>

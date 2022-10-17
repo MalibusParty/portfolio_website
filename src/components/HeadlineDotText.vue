@@ -20,25 +20,52 @@ import TwoEdgeContainer from "./TwoEdgeContainer.vue";
     font-family: 'Segoe UI', 'Arial', 'sans-serif';
 }
 
-.headline-headline-item {
-    color: white;
-    font-weight: bold;
-    font-size: 70pt;
-    margin-top: -35px;
+@media (min-width: 491px) {
+    .headline-headline-item {
+        color: white;
+        font-weight: bold;
+        font-size: 70pt;
+        margin-top: -35px;
+    }
+    
+    .headline-dot-item {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #FF7A50;
+        align-self: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .headline-text-item {
+        color: white;
+        font-size: 32pt;
+    }
 }
 
-.headline-dot-item {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: #FF7A50;
-    align-self: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.headline-text-item {
-    color: white;
-    font-size: 32pt;
+@media (max-width: 490px) {
+    .headline-headline-item {
+        color: white;
+        font-weight: bold;
+        font-size: 40pt;
+        margin-top: -15px;
+        align-self: center;
+    }
+    
+    .headline-dot-item {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #FF7A50;
+        align-self: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .headline-text-item {
+        color: white;
+        font-size: 24pt;
+    }
 }
 </style>
