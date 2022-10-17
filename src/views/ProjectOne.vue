@@ -29,7 +29,7 @@ import NudgedButton from '../components/NudgedButton.vue'
 import PicAndNumberContainer from '../components/PicAndNumberContainer.vue'
 import ProjectOnePic from '@/assets/SPAsS/study_stock.jpg';
 
-const { pageState, getCurrentPage, switchScroll, scrollOn, scrollOff } = usePage();
+const { pageState, getCurrentPage, scrollOn, scrollOff } = usePage();
 
 onMounted(() => {
     pageState.currentPage = getCurrentPage();

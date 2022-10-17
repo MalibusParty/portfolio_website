@@ -49,7 +49,8 @@ import NavigationMenuItem from "./NavigationMenuItem.vue";
     display: flex;
     flex-direction: column;
     height: calc(100vh - 85px);
-    width: 450px;
+    max-width: 450px;
+    width: 100vw;
 
     top: 85px;
     right: 0;

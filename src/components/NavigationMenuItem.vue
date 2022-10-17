@@ -42,7 +42,6 @@ function linkToPage() {
     display: flex;
     flex-direction: row;
     color: white;
-    font-size: 20pt;
     font-weight: bold;
     align-items: center;
     border-bottom: 3px solid #FF7A50;
@@ -67,6 +66,24 @@ function linkToPage() {
     height: 10px;
     border-radius: 50%;
     margin: 0 12px;
+}
+
+@media (max-width: 359px) {
+    #menu-item-container {
+        font-size: 10pt;
+    }
+}
+
+@media (max-width: 490px) and (min-width: 360px){
+    #menu-item-container {
+        font-size: 16pt;
+    }
+}
+
+@media (min-width: 491px) {
+    #menu-item-container {
+        font-size: 20pt;
+    }
 }
 
 </style>
