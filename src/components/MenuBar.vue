@@ -1,8 +1,10 @@
 <template>
     <div id="menu-flex-container">
         <div id="logo-flex-item"></div>
-        <div id="github-flex-item"></div>
-        <div id="menu-flex-item"><NavigationMenuButton></NavigationMenuButton></div>
+        <div id="menu-right-side-container">
+            <div id="menu-flex-item"><NavigationMenuButton></NavigationMenuButton></div>
+            <div id="github-flex-item"></div>
+        </div>
     </div>
 </template>
 
@@ -28,8 +30,15 @@ import NavigationMenuButton from "./NavigationMenuButton.vue";
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
-    width: 10%;
-    margin-right: 82%;
+    width: 150px;
+
+}
+
+#menu-right-side-container {
+    display: flex;
+    width: 100%;
+    height: 85px;
+    flex-direction: row-reverse;
 }
 
 #github-flex-item {
@@ -37,13 +46,12 @@ import NavigationMenuButton from "./NavigationMenuButton.vue";
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    width: 4%;
+    width: 50px;
     margin: 15px 0px 15px 0px;
-
 }
 
 #menu-flex-item {
-    width: 4%;
-    margin-right: 5%;
+    width: 50px;
+    margin-right: 30px;
 }
 </style>
