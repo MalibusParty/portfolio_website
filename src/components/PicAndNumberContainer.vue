@@ -102,7 +102,7 @@ const pageNumber = getCurrentPage();
         top: calc(100% - 100px);
         left: calc(100% - 110px);
         color: #FF7A50;
-        font-size: 200pt;
+        font-size: 150pt;
         line-height: 0;
         font-family: Georgia, 'Times New Roman', Times, serif;
         filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.35));

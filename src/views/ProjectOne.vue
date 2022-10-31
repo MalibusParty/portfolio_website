@@ -104,7 +104,7 @@ function linkToOne() {
         width: 100%;
         cursor: pointer;
         padding-right: 5%;
-        height: 30vh;
+        height: 25vh;
         order: 1;
     }
 
