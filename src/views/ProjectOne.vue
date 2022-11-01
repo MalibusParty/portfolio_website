@@ -46,7 +46,7 @@ function linkToOne() {
 <style scoped>
 
 
-@media (min-width: 491px) {
+@media (min-width: 993px) {
     .project-page {
     
         height: 100%;
@@ -86,7 +86,7 @@ function linkToOne() {
 
 }
 
-@media (max-width: 490px) {
+@media (max-width: 992px) {
     .project-page {
     
         height: 100%;

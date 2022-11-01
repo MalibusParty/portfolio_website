@@ -80,7 +80,7 @@ body {
     z-index: 11;
 }
 
-@media (min-width: 491px) {
+@media (min-width: 993px) {
 
     #scroll-stuff {
         position: absolute;
@@ -114,7 +114,7 @@ body {
     }
 }
 
-@media (max-width: 490px) and (orientation: portrait){
+@media (max-width: 992px) and (orientation: portrait){
 
     #scroll-stuff {
         position: absolute;

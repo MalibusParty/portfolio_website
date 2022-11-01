@@ -20,7 +20,7 @@ import TwoEdgeContainer from "./TwoEdgeContainer.vue";
     font-family: 'Segoe UI', 'Arial', 'sans-serif';
 }
 
-@media (min-width: 491px) {
+@media (min-width: 993px) {
     .headline-headline-item {
         color: white;
         font-weight: bold;
@@ -44,7 +44,7 @@ import TwoEdgeContainer from "./TwoEdgeContainer.vue";
     }
 }
 
-@media (max-width: 490px) {
+@media (max-width: 992px) {
     .headline-headline-item {
         color: white;
         font-weight: bold;

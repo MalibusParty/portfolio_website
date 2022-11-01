@@ -10,7 +10,7 @@
 </script>
 
 <style scoped>
-@media (min-width: 491px) {
+@media (min-width: 993px) {
     .info-right-container {
         display: flex;
         flex-direction: row;
@@ -35,7 +35,7 @@
     }
 }
 
-@media (max-width: 490px) {
+@media (max-width: 992px) {
     .info-right-container {
         display: flex;
         flex-direction: column;

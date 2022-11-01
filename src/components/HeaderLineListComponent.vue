@@ -23,7 +23,7 @@ import QuadEdgeContainer from "./QuadEdgeContainer.vue";
     font-family: 'Segoe UI', 'Arial', 'sans-serif';
 }
 
-@media(min-width: 491px) {
+@media(min-width: 993px) {
     
     #header-list-headline-item {
         color: white;
@@ -45,7 +45,7 @@ import QuadEdgeContainer from "./QuadEdgeContainer.vue";
     }
 }
 
-@media (max-width: 490px) {
+@media (max-width: 992px) {
 
     #header-list-headline-item {
         color: white;

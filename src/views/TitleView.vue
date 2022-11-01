@@ -8,7 +8,7 @@
             </div>
             <div id="intro-text">I currently study Media Computer Science at the RheinMain University of Applied Sciences</div>
         </div>
-        <div id="portrait-container" v-if="windowWidth > 491">
+        <div id="portrait-container" v-if="windowWidth > 993">
             <ImgConverter :x-dimension="100" :img-path="portrait" :color="'#ffffff'"/>
         </div>
     </div>
@@ -37,7 +37,7 @@ const windowWidth = ref(window.innerWidth);
 
 <style scoped>
 
-@media (min-width: 491px) {
+@media (min-width: 993px) {
     #grid-container {
         display: flex;
         width: 70%;
@@ -88,7 +88,7 @@ const windowWidth = ref(window.innerWidth);
     }
 }
 
-@media (max-width: 490px) {
+@media (max-width: 992px) {
     #grid-container {
         display: flex;
         width: 100%;

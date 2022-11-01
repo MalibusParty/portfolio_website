@@ -1,8 +1,10 @@
 <template>
     <canvas hidden id="testCanvas" width="500" height="400"></canvas>
-    <div ref="pixelGrid" id="pixGrid">
-        <div class="pixel" v-for="pix in pixels" v-bind:key="pix"></div>
-    </div>
+    <KeepAlive>
+        <div ref="pixelGrid" id="pixGrid">
+            <div class="pixel" v-for="pix in pixels" v-bind:key="pix"></div>
+        </div>
+    </KeepAlive>
 </template>
 
 
@@ -114,7 +116,7 @@ onUnmounted(() => {
 <style scoped>
 
 
-@media (min-width: 491px) {
+@media (min-width: 993px) {
     #pixGrid {
         max-width: fit-content;
         display: grid;
@@ -137,7 +139,7 @@ onUnmounted(() => {
     }
 }
 
-@media (max-width: 490px) {
+@media (max-width: 992px) {
     #pixGrid {
         max-width: fit-content;
         display: grid;

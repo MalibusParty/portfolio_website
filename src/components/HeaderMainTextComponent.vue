@@ -16,7 +16,7 @@ import TwoEdgeContainer from "./TwoEdgeContainer.vue";
 
 
 <style scoped>
-@media (min-width: 491px) {
+@media (min-width: 993px) {
     #header-main-text-container {
         display: flex;
         flex-direction: column;
@@ -43,7 +43,7 @@ import TwoEdgeContainer from "./TwoEdgeContainer.vue";
 
 }
 
-@media (max-width: 490px) {
+@media (max-width: 992px) {
     #header-main-text-container {
         display: flex;
         flex-direction: column;

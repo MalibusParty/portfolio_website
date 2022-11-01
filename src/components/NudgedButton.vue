@@ -21,7 +21,7 @@ function linkToInfoPage() {
 
 <style scoped>
 
-@media(min-width: 491px) {
+@media(min-width: 993px) {
     #nudged-border-box {
         color: white;
         border: 5px solid #FF7A50;
@@ -44,7 +44,7 @@ function linkToInfoPage() {
     }
 }
 
-@media(max-width: 490px) {
+@media(max-width: 992px) {
     #nudged-border-box {
         color: white;
         border: 5px solid #FF7A50;

@@ -1,10 +1,12 @@
 <template>
-    <div>
-        <div id="pixelPic">
-            <div class="pixelP" v-for="pixx in pixelCount" v-bind:key="pixx"></div>
+    <KeepAlive>
+        <div>
+            <div id="pixelPic">
+                <div class="pixelP" v-for="pixx in pixelCount" v-bind:key="pixx"></div>
+            </div>
+            <canvas hidden id="myTestCanvas"></canvas>
         </div>
-        <canvas hidden id="myTestCanvas"></canvas>
-    </div>
+    </KeepAlive>
 </template>
 
 
@@ -100,7 +102,7 @@ function dimensionChecker() {
 
 <style scoped>
 
-@media (min-width: 491px) {
+@media (min-width: 993px) {
     #pixelPic {
         max-width: fit-content;
         display: grid;

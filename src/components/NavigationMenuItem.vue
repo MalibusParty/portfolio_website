@@ -74,13 +74,13 @@ function linkToPage() {
     }
 }
 
-@media (max-width: 490px) and (min-width: 360px){
+@media (max-width: 992px) and (min-width: 360px){
     #menu-item-container {
         font-size: 16pt;
     }
 }
 
-@media (min-width: 491px) {
+@media (min-width: 993px) {
     #menu-item-container {
         font-size: 20pt;
     }

@@ -11,7 +11,7 @@
 
 <style scoped>
 
-@media (min-width: 491px) {
+@media (min-width: 993px) {
     .info-left-container {
         display: flex;
         flex-direction: row;
@@ -37,7 +37,7 @@
     }
 }
 
-@media (max-width: 490px) {
+@media (max-width: 992px) {
     .info-left-container {
         display: flex;
         flex-direction: column;

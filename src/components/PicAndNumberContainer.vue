@@ -33,7 +33,7 @@ const pageNumber = getCurrentPage();
 
 <style scoped>
 
-@media (min-width: 491px) {
+@media (min-width: 993px) {
     .pic-container {
         width: 100%;
         height: 100%;
@@ -72,7 +72,7 @@ const pageNumber = getCurrentPage();
     }
 }
 
-@media(max-width: 490px) {
+@media(max-width: 992px) {
     .pic-container {
         width: 100%;
         height: 100%;

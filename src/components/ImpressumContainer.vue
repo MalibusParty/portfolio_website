@@ -30,7 +30,7 @@ import HeaderLineListComponent from '../components/HeaderLineListComponent.vue';
     place-content: center;
 }
 
-@media (min-width: 491px) {
+@media (min-width: 993px) {
     .impressum-item {
         padding-top: calc(85px + 5vh);
         padding-bottom: 10%;
@@ -38,7 +38,7 @@ import HeaderLineListComponent from '../components/HeaderLineListComponent.vue';
     }
 }
 
-@media (max-width: 490px) {
+@media (max-width: 992px) {
 
     .impressum-container {
         margin-top: 5vh;

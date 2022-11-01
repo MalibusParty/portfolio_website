@@ -24,7 +24,7 @@ onMounted(() => {
 </script>
 
 <style scoped>
-@media (min-width: 491px) {
+@media (min-width: 993px) {
     .info-landing-page-container {
         display: flex;
         flex-direction: row;
@@ -62,7 +62,7 @@ onMounted(() => {
     }
 }
 
-@media (max-width: 490px) {
+@media (max-width: 992px) {
     .info-landing-page-container {
         display: flex;
         flex-direction: column;
