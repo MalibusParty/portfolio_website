@@ -3,8 +3,8 @@
         <InfoLandingPage :img-path="ProjectTwoPic">
             <template #left-side-headline>
                 <HeadlineDotText>
-                    <template #headline>SPAsS</template>
-                    <template #default>Study Planner</template>
+                    <template #headline>Ebay Clone</template>
+                    <template #default>Marketplace</template>
                 </HeadlineDotText>
             </template>
             <template #left-side-btn>
