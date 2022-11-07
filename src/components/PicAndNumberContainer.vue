@@ -61,7 +61,7 @@ const pageNumber = getCurrentPage();
     #number-item {
         position: relative;
         top: calc(100% - 160px);
-        left: calc(100% - 180px);
+        left: calc(100% - 230px);
         width: 15%;
         height: 50%;
         color: #FF7A50;
