@@ -6,7 +6,7 @@
                     <p>SPAsS - Study Planner</p>
                 </template>
                 <template #default>
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                    <p>SPAsS is an acronym for "Semester-Planungs-Anwendung für studierenden Studierende". It's a tool to help students organize and plan their curriculum, as well as keep track of their grades.</p>
                 </template>
             </HeaderMainTextComponent>
             <div id="ndgd-btn">

@@ -72,7 +72,7 @@
                 <HeaderTextQuadComponent>
                     <template #headline>Headline 1</template>
                     <template #default>
-                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                        <p>This is the main view, where one can see the current curriculum and which subject is passed. If a given subject is passed and has a grade, the average grade is updated. It's also possible to save the current curriculum.</p>
                     </template>
                 </HeaderTextQuadComponent>
             </template>
@@ -82,7 +82,7 @@
                 <HeaderTextQuadComponent>
                     <template #headline>Headline 2</template>
                     <template #default>
-                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                        <p>For a given course of studies, all the subjects in that course are loaded at the beginning. If the minimum requirement for a specific subject is passed, it becomes available to drag down in the curriculum. Otherwise, an error message is shown to indicate which requirements haven't been met yet.</p>
                     </template>
                 </HeaderTextQuadComponent>
             </template>
