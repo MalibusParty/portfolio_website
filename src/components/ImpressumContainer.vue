@@ -32,9 +32,13 @@ import HeaderLineListComponent from '../components/HeaderLineListComponent.vue';
 
 @media (min-width: 993px) {
     .impressum-item {
-        padding-top: calc(85px + 5vh);
+        padding-top: 5%;
         padding-bottom: 10%;
         width: 600px;
+    }
+
+    .impressum-item h3 {
+        line-height: 5pt;
     }
 }
 

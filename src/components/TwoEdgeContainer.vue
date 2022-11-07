@@ -44,5 +44,7 @@
 
 #two-edge-slot {
     grid-area: 2 / 2;
+    margin-top: -8px;
+    margin-bottom: -12px;
 }
 </style>

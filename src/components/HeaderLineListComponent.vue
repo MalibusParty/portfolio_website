@@ -28,16 +28,15 @@ import QuadEdgeContainer from "./QuadEdgeContainer.vue";
     #header-list-headline-item {
         color: white;
         font-weight: bold;
-        font-size: 22pt;
-        line-height: 20pt;
+        font-size: 18pt;
         margin-top: -5px;
     }
     
     #header-list-list-item {
         color: white;
-        font-size: 20pt;
+        font-size: 16pt;
     }
-    
+
     #header-list-line-item {
         border-top: 5px solid #FF7A50;
         margin-right: 25%;

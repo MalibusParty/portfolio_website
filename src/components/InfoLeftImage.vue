@@ -16,7 +16,7 @@
         display: flex;
         flex-direction: row;
         height: 90vh;
-        min-height: 900px;
+        min-height: 700px;
         width: 100vw;
         padding: 2vh 2vw;
     }

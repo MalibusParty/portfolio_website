@@ -27,10 +27,10 @@ function linkToInfoPage() {
         border: 5px solid #FF7A50;
         text-align: center;
         width: fit-content;
-        padding: 0px 40px 0px 40px;
+        padding: 0px 30px 0px 30px;
         font-family: 'Segoe UI', Arial, sans-serif;
         font-size: 18pt;
-        line-height: 6pt;
+        line-height: 0pt;
         transform: skew(-30deg);
     }
     

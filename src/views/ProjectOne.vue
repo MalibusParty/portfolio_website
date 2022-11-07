@@ -67,7 +67,9 @@ function linkToOne() {
     
     .page-left-side {
         width: 40%;
-        padding: 20vh 10vw 0 0vw;
+        /* padding: 10vh 10vw 0 0vw; */
+        place-self: center;
+        margin-right: 10vw;
     }
     
     

@@ -60,12 +60,12 @@ const pageNumber = getCurrentPage();
     
     #number-item {
         position: relative;
-        top: calc(100% - 190px);
-        left: calc(100% - 230px);
+        top: calc(100% - 160px);
+        left: calc(100% - 180px);
         width: 15%;
         height: 50%;
         color: #FF7A50;
-        font-size: 500pt;
+        font-size: 400pt;
         line-height: 0;
         font-family: Georgia, 'Times New Roman', Times, serif;
         filter: drop-shadow(5px 5px 3px rgba(0, 0, 0, 0.35));
