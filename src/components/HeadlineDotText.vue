@@ -24,8 +24,9 @@ import TwoEdgeContainer from "./TwoEdgeContainer.vue";
     .headline-headline-item {
         color: white;
         font-weight: bold;
-        font-size: 70pt;
-        margin-top: -35px;
+        font-size: 44pt;
+        margin-top: -15px;
+        text-align: center;
     }
     
     .headline-dot-item {
@@ -40,7 +41,8 @@ import TwoEdgeContainer from "./TwoEdgeContainer.vue";
     
     .headline-text-item {
         color: white;
-        font-size: 32pt;
+        font-size: 28pt;
+        text-align: center;
     }
 }
 

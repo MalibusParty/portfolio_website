@@ -70,7 +70,7 @@
             </template>
             <template #default>
                 <HeaderTextQuadComponent>
-                    <template #headline>Headline 1</template>
+                    <template #headline>Main View</template>
                     <template #default>
                         <p>This is the main view, where one can see the current curriculum and which subject is passed. If a given subject is passed and has a grade, the average grade is updated. It's also possible to save the current curriculum.</p>
                     </template>
@@ -80,7 +80,7 @@
         <InfoLeftImage>
             <template #default>
                 <HeaderTextQuadComponent>
-                    <template #headline>Headline 2</template>
+                    <template #headline>Course-Selection</template>
                     <template #default>
                         <p>For a given course of studies, all the subjects in that course are loaded at the beginning. If the minimum requirement for a specific subject is passed, it becomes available to drag down in the curriculum. Otherwise, an error message is shown to indicate which requirements haven't been met yet.</p>
                     </template>

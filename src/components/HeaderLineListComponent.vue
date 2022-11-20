@@ -34,7 +34,7 @@ import QuadEdgeContainer from "./QuadEdgeContainer.vue";
     
     #header-list-list-item {
         color: white;
-        font-size: 16pt;
+        font-size: 14pt;
     }
 
     #header-list-line-item {
