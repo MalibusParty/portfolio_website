@@ -12,7 +12,9 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue';
-import { scaleImgDown } from '@/services/imgScaleLib';
+import { imgScaleLib } from '@/services/imgScaleLib';
+
+const { scaleImgDown } = imgScaleLib();
 
 const props = defineProps<{
     xDimension: number,

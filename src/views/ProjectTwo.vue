@@ -24,7 +24,6 @@
 import router from '@/router';
 import { onMounted } from 'vue';
 import { usePage } from '../services/usePage';
-import ImgConverter from '@/components/imgConverter.vue';
 import ProjectTwoPic from '@/assets/Ebay_Klon/second-hand-stock.jpg'
 import HeaderMainTextComponent from '../components/HeaderMainTextComponent.vue'
 import NudgedButton from '../components/NudgedButton.vue'

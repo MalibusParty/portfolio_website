@@ -1,12 +1,12 @@
-export function createBinaryImg(canvasId) {
-    const canvas = document.getElementById(canvasId);
+function createBinaryImg(canvasId: any) {
+    const canvas: any = document.getElementById(canvasId);
     const ctx = canvas.getContext('2d');
 
     const text = 'Portfolio';
     ctx.font = 'oblique 1000 100px sans-serif';
     ctx.fillText(text, 0, 75);
-    let imgData = ctx.getImageData(0, 0, canvas.width, 100);
-    let pixArr = new Array(imgData.data.length);
+    const imgData = ctx.getImageData(0, 0, canvas.width, 100);
+    const pixArr = new Array(imgData.data.length);
     
     let counter = 0;
     for(let i = 0; i < imgData.data.length; i += 4) {
@@ -16,10 +16,10 @@ export function createBinaryImg(canvasId) {
     return pixArr;
 }
 
-export function scaleImgDown(pixelArray, newWidth, newHeight, width, height) {
+function scaleImgDown(pixelArray: any, newWidth: any, newHeight: any, width: any, height: any) {
     newWidth = newWidth | 0;
     newHeight = newHeight | 0;
-    let outputArr = new Array(newWidth*newHeight);
+    const outputArr = new Array(newWidth*newHeight);
     const scaleX = newWidth / width;
     const scaleY = newHeight / height;
     for(let x = 0; x < newWidth; x++) {
@@ -34,18 +34,18 @@ export function scaleImgDown(pixelArray, newWidth, newHeight, width, height) {
     return outputArr;
 }
 
-export function getPixel(pixelArray, x, y, width) {
+function getPixel(pixelArray: any, x: any, y: any, width: any) {
     return pixelArray[y * width + x]
 }
 
-export function readImgFile(imgId, newWidth, newHeight) {
-    let canvas = document.createElement("canvas");
+function readImgFile(imgId: any, newWidth: any, newHeight: any) {
+    const canvas = document.createElement("canvas");
     //const canvas = document.getElementById(imgId);
-    const ctx = canvas.getContext('2d');
-    let img = new Image();
+    const ctx: any = canvas.getContext('2d');
+    const img = new Image();
     img.onload = function () {
-        let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        let pixArr = new Array(imgData.data.length / 4);
+        const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const pixArr = new Array(imgData.data.length / 4);
         const data = imgData.data;
 
         let counter = 0;
@@ -55,5 +55,15 @@ export function readImgFile(imgId, newWidth, newHeight) {
 
         return scaleImgDown(pixArr, newWidth, newHeight, canvas.width, canvas.height);
     };
-    img.src = document.getElementById(imgId).src;
+    const element: any = document.getElementById(imgId);
+    img.src = element.src;
+}
+
+export function imgScaleLib() {
+    return {
+        readImgFile,
+        getPixel,
+        scaleImgDown,
+        createBinaryImg
+    }
 }

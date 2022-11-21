@@ -20,7 +20,7 @@
 import PixelGrid from '@/components/PixelGrid.vue';
 import { onMounted, ref } from 'vue';
 import { usePage } from '../services/usePage';
-import ImgConverter from '@/components/imgConverter.vue';
+import ImgConverter from '@/components/ImgConverter.vue';
 import portrait from '@/assets/portrait_small.png';
 import TwoEdgeContainer from '../components/TwoEdgeContainer.vue';
 
