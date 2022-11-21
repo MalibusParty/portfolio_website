@@ -134,7 +134,11 @@ function getPageLink() {
 function getGithubLink(): string {
     switch(pageState.currentPage) {
         case 0:
-            return 'https://github.com/MalibusParty';
+            return 'https://github.com/MalibusParty/portfolio_website';
+        case 1:
+            return 'https://github.com/MalibusParty/StudienplanerHsRm';
+        case 2:
+            return 'https://github.com/MalibusParty/ebay-clone';
         default:
             return 'https://github.com/MalibusParty';
     }
