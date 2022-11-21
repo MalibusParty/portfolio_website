@@ -3,7 +3,7 @@
         <div id="logo-flex-item"></div>
         <div id="menu-right-side-container">
             <div id="menu-flex-item"><NavigationMenuButton></NavigationMenuButton></div>
-            <div id="github-flex-item"></div>
+            <div id="github-flex-item" @click="redirectToGithub"></div>
         </div>
     </div>
 </template>
@@ -11,6 +11,13 @@
 
 <script setup lang="ts">
 import NavigationMenuButton from "./NavigationMenuButton.vue";
+import { usePage } from '@/services/usePage';
+
+const { getGithubLink } = usePage();
+
+function redirectToGithub() {
+    window.open(getGithubLink(), '_blank')?.focus();
+}
 
 </script>
 
@@ -31,7 +38,6 @@ import NavigationMenuButton from "./NavigationMenuButton.vue";
     background-repeat: no-repeat;
     background-size: contain;
     width: 150px;
-
 }
 
 #menu-right-side-container {
@@ -48,6 +54,10 @@ import NavigationMenuButton from "./NavigationMenuButton.vue";
     background-repeat: no-repeat;
     width: 50px;
     margin: 15px 0px 15px 0px;
+}
+
+#github-flex-item:hover {
+    filter: drop-shadow(0px 0px 3px white);
 }
 
 #menu-flex-item {

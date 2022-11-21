@@ -32,9 +32,9 @@ function openMenu() {
     place-items: center;
 }
 
-/* #nav-btn-lines {
-    background-color: black;
-} */
+#nav-btn-lines:hover {
+    filter: drop-shadow(0px 0px 3px white);
+}
 
 #nav-click-plane {
     position: fixed;
